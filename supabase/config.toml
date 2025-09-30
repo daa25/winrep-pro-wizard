@@ -1,0 +1,11 @@
+[functions.generate-leads]
+verify_jwt = false
+
+[functions.draft-email]
+verify_jwt = false
+
+[functions.predictive-analysis]
+verify_jwt = false
+
+[functions.optimize-route]
+verify_jwt = false

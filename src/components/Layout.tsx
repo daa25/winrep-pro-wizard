@@ -1,4 +1,4 @@
-import { Home, Users, BarChart3, Settings, TrendingUp } from "lucide-react";
+import { Home, Users, BarChart3, Settings, TrendingUp, Mail, Navigation, Target } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
@@ -7,6 +7,10 @@ const navigation = [
   { name: "Reps", href: "/reps", icon: Users },
   { name: "Performance", href: "/performance", icon: TrendingUp },
   { name: "Analytics", href: "/analytics", icon: BarChart3 },
+  { name: "Lead Generation", href: "/lead-generation", icon: Target },
+  { name: "Email Drafting", href: "/email-drafting", icon: Mail },
+  { name: "Predictive Analysis", href: "/predictive-analysis", icon: TrendingUp },
+  { name: "Route Optimization", href: "/route-optimization", icon: Navigation },
   { name: "Settings", href: "/settings", icon: Settings },
 ];
 
