@@ -1,1 +1,1 @@
-2025-09-30 12:39:59
+2025-10-01 - Rebuild to load Cloud environment variables
