@@ -14,16 +14,207 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      activities: {
+        Row: {
+          activity_type: string
+          completed: boolean | null
+          created_at: string | null
+          customer_name: string | null
+          description: string | null
+          id: string
+          scheduled_at: string | null
+          title: string
+          user_id: string
+        }
+        Insert: {
+          activity_type: string
+          completed?: boolean | null
+          created_at?: string | null
+          customer_name?: string | null
+          description?: string | null
+          id?: string
+          scheduled_at?: string | null
+          title: string
+          user_id: string
+        }
+        Update: {
+          activity_type?: string
+          completed?: boolean | null
+          created_at?: string | null
+          customer_name?: string | null
+          description?: string | null
+          id?: string
+          scheduled_at?: string | null
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      leads: {
+        Row: {
+          company_name: string
+          contact_name: string | null
+          created_at: string | null
+          email: string | null
+          id: string
+          industry: string | null
+          notes: string | null
+          phone: string | null
+          score: number | null
+          status: string | null
+          user_id: string
+        }
+        Insert: {
+          company_name: string
+          contact_name?: string | null
+          created_at?: string | null
+          email?: string | null
+          id?: string
+          industry?: string | null
+          notes?: string | null
+          phone?: string | null
+          score?: number | null
+          status?: string | null
+          user_id: string
+        }
+        Update: {
+          company_name?: string
+          contact_name?: string | null
+          created_at?: string | null
+          email?: string | null
+          id?: string
+          industry?: string | null
+          notes?: string | null
+          phone?: string | null
+          score?: number | null
+          status?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      optimized_routes: {
+        Row: {
+          created_at: string | null
+          id: string
+          route_name: string
+          stops: Json
+          total_distance: number | null
+          total_duration: number | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          route_name: string
+          stops: Json
+          total_distance?: number | null
+          total_duration?: number | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          route_name?: string
+          stops?: Json
+          total_distance?: number | null
+          total_duration?: number | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string | null
+          email: string
+          full_name: string
+          id: string
+          phone: string | null
+          territory: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          full_name: string
+          id: string
+          phone?: string | null
+          territory?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          full_name?: string
+          id?: string
+          phone?: string | null
+          territory?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      saved_drafts: {
+        Row: {
+          content: string
+          created_at: string | null
+          draft_type: string | null
+          id: string
+          recipient: string
+          subject: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string | null
+          draft_type?: string | null
+          id?: string
+          recipient: string
+          subject: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string | null
+          draft_type?: string | null
+          id?: string
+          recipient?: string
+          subject?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "manager" | "rep"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +341,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "manager", "rep"],
+    },
   },
 } as const
