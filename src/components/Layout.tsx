@@ -1,6 +1,9 @@
-import { Home, Users, BarChart3, Settings, TrendingUp, Mail, Navigation, Target } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Home, Users, BarChart3, Settings, TrendingUp, Mail, Navigation, Target, LogOut } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/hooks/useAuth";
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: Home },
@@ -16,6 +19,14 @@ const navigation = [
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+    toast.success("Signed out successfully");
+    navigate("/auth");
+  };
 
   return (
     <div className="flex min-h-screen bg-background">
@@ -56,13 +67,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Footer */}
           <div className="border-t border-sidebar-border p-4">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mb-3">
               <div className="h-9 w-9 rounded-full bg-gradient-primary" />
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-sidebar-foreground truncate">Admin User</p>
-                <p className="text-xs text-sidebar-foreground/60 truncate">admin@winrep.pro</p>
+                <p className="text-sm font-medium text-sidebar-foreground truncate">
+                  {user?.email || "User"}
+                </p>
+                <p className="text-xs text-sidebar-foreground/60 truncate">
+                  Rep Account
+                </p>
               </div>
             </div>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleSignOut}
+              className="w-full"
+            >
+              <LogOut className="h-4 w-4 mr-2" />
+              Sign Out
+            </Button>
           </div>
         </div>
       </aside>
