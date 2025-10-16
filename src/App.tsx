@@ -16,6 +16,7 @@ import LeadGeneration from "./pages/LeadGeneration";
 import EmailDrafting from "./pages/EmailDrafting";
 import PredictiveAnalysis from "./pages/PredictiveAnalysis";
 import RouteOptimization from "./pages/RouteOptimization";
+import Customers from "./pages/Customers";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/email-drafting" element={<ProtectedRoute><EmailDrafting /></ProtectedRoute>} />
           <Route path="/predictive-analysis" element={<ProtectedRoute><PredictiveAnalysis /></ProtectedRoute>} />
           <Route path="/route-optimization" element={<ProtectedRoute><RouteOptimization /></ProtectedRoute>} />
+          <Route path="/customers" element={<ProtectedRoute><Customers /></ProtectedRoute>} />
           <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

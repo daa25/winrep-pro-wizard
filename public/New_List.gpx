@@ -1,0 +1,4026 @@
+﻿<?xml version="1.0" encoding="utf-8"?><gpx creator="Garmin Desktop App" version="1.1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/WaypointExtension/v1 http://www8.garmin.com/xmlschemas/WaypointExtensionv1.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www8.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/ActivityExtension/v1 http://www8.garmin.com/xmlschemas/ActivityExtensionv1.xsd http://www.garmin.com/xmlschemas/AdventuresExtensions/v1 http://www8.garmin.com/xmlschemas/AdventuresExtensionv1.xsd http://www.garmin.com/xmlschemas/PressureExtension/v1 http://www.garmin.com/xmlschemas/PressureExtensionv1.xsd http://www.garmin.com/xmlschemas/TripExtensions/v1 http://www.garmin.com/xmlschemas/TripExtensionsv1.xsd http://www.garmin.com/xmlschemas/TripMetaDataExtensions/v1 http://www.garmin.com/xmlschemas/TripMetaDataExtensionsv1.xsd http://www.garmin.com/xmlschemas/ViaPointTransportationModeExtensions/v1 http://www.garmin.com/xmlschemas/ViaPointTransportationModeExtensionsv1.xsd http://www.garmin.com/xmlschemas/CreationTimeExtension/v1 http://www.garmin.com/xmlschemas/CreationTimeExtensionsv1.xsd http://www.garmin.com/xmlschemas/AccelerationExtension/v1 http://www.garmin.com/xmlschemas/AccelerationExtensionv1.xsd http://www.garmin.com/xmlschemas/PowerExtension/v1 http://www.garmin.com/xmlschemas/PowerExtensionv1.xsd http://www.garmin.com/xmlschemas/VideoExtension/v1 http://www.garmin.com/xmlschemas/VideoExtensionv1.xsd" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1" xmlns:gpxtrx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:trp="http://www.garmin.com/xmlschemas/TripExtensions/v1" xmlns:adv="http://www.garmin.com/xmlschemas/AdventuresExtensions/v1" xmlns:prs="http://www.garmin.com/xmlschemas/PressureExtension/v1" xmlns:tmd="http://www.garmin.com/xmlschemas/TripMetaDataExtensions/v1" xmlns:vptm="http://www.garmin.com/xmlschemas/ViaPointTransportationModeExtensions/v1" xmlns:ctx="http://www.garmin.com/xmlschemas/CreationTimeExtension/v1" xmlns:gpxacc="http://www.garmin.com/xmlschemas/AccelerationExtension/v1" xmlns:gpxpx="http://www.garmin.com/xmlschemas/PowerExtension/v1" xmlns:vidx1="http://www.garmin.com/xmlschemas/VideoExtension/v1">
+
+  <metadata>
+    <link href="http://www.garmin.com">
+      <text>Garmin International</text>
+    </link>
+    <time>2025-10-16T21:48:34Z</time>
+    <bounds maxlat="50.901701040565968" maxlon="-1.489350032061338" minlat="25.061784032732248" minlon="121.64026801474392" />
+  </metadata>
+
+  <wpt lat="28.442127965390682" lon="-81.301511004567146">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>1st Vehicle Orlando</name>
+    <cmt>8701 Casa Verde Rd
+Orlando, FL 32827</cmt>
+    <desc>8701 Casa Verde Rd
+Orlando, FL 32827</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>8701 Casa Verde Rd</gpxx:StreetAddress>
+          <gpxx:City>Orlando</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32827</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>8701 Casa Verde Rd</wptx1:StreetAddress>
+          <wptx1:City>Orlando</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32827</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.996283998712897" lon="-82.156569985672832">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ABM</name>
+    <cmt>15611 SW 13th Cir
+Ocala, FL 34473</cmt>
+    <desc>15611 SW 13th Cir
+Ocala, FL 34473</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>15611 SW 13th Cir</gpxx:StreetAddress>
+          <gpxx:City>Ocala</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34473</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>15611 SW 13th Cir</wptx1:StreetAddress>
+          <wptx1:City>Ocala</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34473</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.996283998712897" lon="-82.156569985672832">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ABM Ocala</name>
+    <cmt>15611 SW 13th Cir
+Ocala, FL 34473</cmt>
+    <desc>15611 SW 13th Cir
+Ocala, FL 34473</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>15611 SW 13th Cir</gpxx:StreetAddress>
+          <gpxx:City>Ocala</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34473</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>15611 SW 13th Cir</wptx1:StreetAddress>
+          <wptx1:City>Ocala</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34473</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.193944003432989" lon="-82.35336902551353">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>AdventHealth WC</name>
+    <cmt>2600 Bruce B Downs Blvd
+Wesley Chapel, FL 33544</cmt>
+    <desc>2600 Bruce B Downs Blvd
+Wesley Chapel, FL 33544</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>2600 Bruce B Downs Blvd</gpxx:StreetAddress>
+          <gpxx:City>Wesley Chapel</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33544</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>2600 Bruce B Downs Blvd</wptx1:StreetAddress>
+          <wptx1:City>Wesley Chapel</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33544</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.76143497414887" lon="-81.73253302462399">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Alex Job Racing</name>
+    <cmt>551 Southridge Industrial Dr
+Tavares, FL 32778</cmt>
+    <desc>551 Southridge Industrial Dr
+Tavares, FL 32778</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>551 Southridge Industrial Dr</gpxx:StreetAddress>
+          <gpxx:City>Tavares</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32778</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>551 Southridge Industrial Dr</wptx1:StreetAddress>
+          <wptx1:City>Tavares</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32778</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.044353015720844" lon="-81.893405970185995">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Allied Scrap</name>
+    <cmt>3330 E Main St
+Lakeland, FL 33801</cmt>
+    <desc>3330 E Main St
+Lakeland, FL 33801</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>3330 E Main St</gpxx:StreetAddress>
+          <gpxx:City>Lakeland</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33801</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>3330 E Main St</wptx1:StreetAddress>
+          <wptx1:City>Lakeland</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33801</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.111033989116549" lon="-81.621959963813424">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Ameriscape HC</name>
+    <cmt>212 12th St N
+Haines City, FL 33844</cmt>
+    <desc>212 12th St N
+Haines City, FL 33844</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>212 12th St N</gpxx:StreetAddress>
+          <gpxx:City>Haines City</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33844</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>212 12th St N</wptx1:StreetAddress>
+          <wptx1:City>Haines City</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33844</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.84468998759985" lon="-81.955347983166575">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ASG Belle Glade</name>
+    <cmt>298 Basso Run
+The Villages, FL 32163</cmt>
+    <desc>298 Basso Run
+The Villages, FL 32163</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>298 Basso Run</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32163</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>298 Basso Run</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32163</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.864707984030247" lon="-81.989973038434982">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ASG Bonifay</name>
+    <cmt>2830 Killdeer Ct
+The Villages, FL 32163</cmt>
+    <desc>2830 Killdeer Ct
+The Villages, FL 32163</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>2830 Killdeer Ct</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32163</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>2830 Killdeer Ct</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32163</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.927029026672244" lon="-82.020258028060198">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ASG Buffalo Ridge</name>
+    <cmt>391 Buffalo Trl
+The Villages, FL 32162</cmt>
+    <desc>391 Buffalo Trl
+The Villages, FL 32162</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>391 Buffalo Trl</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32162</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>391 Buffalo Trl</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32162</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.927029026672244" lon="-82.020258028060198">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ASG Buffalo Ridge 1</name>
+    <cmt>391 Buffalo Trl
+The Villages, FL 32162</cmt>
+    <desc>391 Buffalo Trl
+The Villages, FL 32162</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>391 Buffalo Trl</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32162</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>391 Buffalo Trl</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32162</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.892561970278621" lon="-81.992208994925022">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ASG Cane Garden/Sunset Pt</name>
+    <cmt>1716 Bailey Trl
+The Villages, FL 32162</cmt>
+    <desc>1716 Bailey Trl
+The Villages, FL 32162</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>1716 Bailey Trl</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32162</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>1716 Bailey Trl</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32162</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.790365029126406" lon="-81.969979014247656">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ASG Clifton Cove</name>
+    <cmt>781 Marilee Pl
+Wildwood, FL 34785</cmt>
+    <desc>781 Marilee Pl
+Wildwood, FL 34785</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>781 Marilee Pl</gpxx:StreetAddress>
+          <gpxx:City>Wildwood</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34785</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>781 Marilee Pl</wptx1:StreetAddress>
+          <wptx1:City>Wildwood</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34785</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.864707984030247" lon="-81.989973038434982">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ASG Evans Prairie</name>
+    <cmt>2830 Killdeer Ct
+The Villages, FL 32163</cmt>
+    <desc>2830 Killdeer Ct
+The Villages, FL 32163</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>2830 Killdeer Ct</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32163</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>2830 Killdeer Ct</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32163</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="30.928007997572422" lon="-85.121242012828588">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ASG Hammock</name>
+    <cmt>5670 Hummingbird Rd
+Bascom, FL 32423</cmt>
+    <desc>5670 Hummingbird Rd
+Bascom, FL 32423</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>5670 Hummingbird Rd</gpxx:StreetAddress>
+          <gpxx:City>Bascom</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32423</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>5670 Hummingbird Rd</wptx1:StreetAddress>
+          <wptx1:City>Bascom</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32423</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.880631001666188" lon="-81.981042036786675">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ASG Havana</name>
+    <cmt>1215 Bonita Blvd
+The Villages, FL 32162</cmt>
+    <desc>1215 Bonita Blvd
+The Villages, FL 32162</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>1215 Bonita Blvd</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32162</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>1215 Bonita Blvd</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32162</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.880859995260835" lon="-81.980808014050126">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ASG Havana 1</name>
+    <cmt>1215 Bonita Blvd
+The Villages, FL 32162</cmt>
+    <desc>1215 Bonita Blvd
+The Villages, FL 32162</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>1215 Bonita Blvd</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32162</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>1215 Bonita Blvd</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32162</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.809148035943508" lon="-82.024373039603233">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ASG Lowlands</name>
+    <cmt>5197 Marsh Bend Trl
+Wildwood, FL 34785</cmt>
+    <desc>5197 Marsh Bend Trl
+Wildwood, FL 34785</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>5197 Marsh Bend Trl</gpxx:StreetAddress>
+          <gpxx:City>Wildwood</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34785</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>5197 Marsh Bend Trl</wptx1:StreetAddress>
+          <wptx1:City>Wildwood</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34785</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.878298988565803" lon="-82.029515001922846">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ASG Main Shop</name>
+    <cmt>4451 NE 83rd Rd
+Wildwood, FL 34785</cmt>
+    <desc>4451 NE 83rd Rd
+Wildwood, FL 34785</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>4451 NE 83rd Rd</gpxx:StreetAddress>
+          <gpxx:City>Wildwood</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34785</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>4451 NE 83rd Rd</wptx1:StreetAddress>
+          <wptx1:City>Wildwood</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34785</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.746366994455457" lon="-82.008305015042424">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ASG Middleton School</name>
+    <cmt>2210 Dr Randy McDaniel Way
+Sumterville, FL 33585</cmt>
+    <desc>2210 Dr Randy McDaniel Way
+Sumterville, FL 33585</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>2210 Dr Randy McDaniel Way</gpxx:StreetAddress>
+          <gpxx:City>Sumterville</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33585</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>2210 Dr Randy McDaniel Way</wptx1:StreetAddress>
+          <wptx1:City>Sumterville</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33585</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.936758991330862" lon="-81.997801987454295">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ASG Polo</name>
+    <cmt>700 N Buena Vista Blvd
+The Villages, FL 32162</cmt>
+    <desc>700 N Buena Vista Blvd
+The Villages, FL 32162</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>700 N Buena Vista Blvd</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32162</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>700 N Buena Vista Blvd</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32162</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.936758991330862" lon="-81.997801987454295">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ASG Polo 1</name>
+    <cmt>700 N Buena Vista Blvd
+The Villages, FL 32162</cmt>
+    <desc>700 N Buena Vista Blvd
+The Villages, FL 32162</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>700 N Buena Vista Blvd</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32162</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>700 N Buena Vista Blvd</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32162</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.824780033901334" lon="-82.019608011469245">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ASG Richmond</name>
+    <cmt>4468 Burgess Dr
+Wildwood, FL 34785</cmt>
+    <desc>4468 Burgess Dr
+Wildwood, FL 34785</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>4468 Burgess Dr</gpxx:StreetAddress>
+          <gpxx:City>Wildwood</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34785</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>4468 Burgess Dr</wptx1:StreetAddress>
+          <wptx1:City>Wildwood</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34785</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.892551995813847" lon="-81.992203965783119">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>ASG Sunset Pt</name>
+    <cmt>1716 Bailey Trl
+The Villages, FL 32162</cmt>
+    <desc>1716 Bailey Trl
+The Villages, FL 32162</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>1716 Bailey Trl</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32162</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>1716 Bailey Trl</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32162</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.027761960402131" lon="-81.726021962240338">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Baycare Winter Haven</name>
+    <cmt>200 Avenue F NE
+Winter Haven, FL 33881</cmt>
+    <desc>200 Avenue F NE
+Winter Haven, FL 33881</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>200 Avenue F NE</gpxx:StreetAddress>
+          <gpxx:City>Winter Haven</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33881</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>200 Avenue F NE</wptx1:StreetAddress>
+          <wptx1:City>Winter Haven</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33881</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.237598966807127" lon="-82.174718985334039">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>BM</name>
+    <cmt>5517 17th St
+Zephyrhills, FL 33542</cmt>
+    <desc>5517 17th St
+Zephyrhills, FL 33542</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>5517 17th St</gpxx:StreetAddress>
+          <gpxx:City>Zephyrhills</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33542</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>5517 17th St</wptx1:StreetAddress>
+          <wptx1:City>Zephyrhills</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33542</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.27333596535027" lon="-81.635389029979706">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Brightview Champions  Gate</name>
+    <cmt>8700 Bella Citta Blvd
+Davenport, FL 33896</cmt>
+    <desc>8700 Bella Citta Blvd
+Davenport, FL 33896</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>8700 Bella Citta Blvd</gpxx:StreetAddress>
+          <gpxx:City>Davenport</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33896</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>8700 Bella Citta Blvd</wptx1:StreetAddress>
+          <wptx1:City>Davenport</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33896</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.216514037922025" lon="-82.376957964152098">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Brightview Lutz</name>
+    <cmt>26642 Wild Fern Cir
+Lutz, FL 33559</cmt>
+    <desc>26642 Wild Fern Cir
+Lutz, FL 33559</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>26642 Wild Fern Cir</gpxx:StreetAddress>
+          <gpxx:City>Lutz</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33559</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>26642 Wild Fern Cir</wptx1:StreetAddress>
+          <wptx1:City>Lutz</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33559</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.861826034262776" lon="-81.94876098074019">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Brightview Ocala</name>
+    <cmt>225 CR-466A
+Fruitland Park, FL 34731</cmt>
+    <desc>225 CR-466A
+Fruitland Park, FL 34731</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>225 CR-466A</gpxx:StreetAddress>
+          <gpxx:City>Fruitland Park</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34731</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>225 CR-466A</wptx1:StreetAddress>
+          <wptx1:City>Fruitland Park</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34731</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="27.414016965776682" lon="-82.538494002074003">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Brightview Sarasota</name>
+    <cmt>7175 21st St E
+Sarasota, FL 34243</cmt>
+    <desc>7175 21st St E
+Sarasota, FL 34243</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>7175 21st St E</gpxx:StreetAddress>
+          <gpxx:City>Sarasota</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34243</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>7175 21st St E</wptx1:StreetAddress>
+          <wptx1:City>Sarasota</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34243</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.01228896714747" lon="-82.541894037276506">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Brightview St Pete</name>
+    <cmt>7001 Benjamin Rd
+Tampa, FL 33634</cmt>
+    <desc>7001 Benjamin Rd
+Tampa, FL 33634</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>7001 Benjamin Rd</gpxx:StreetAddress>
+          <gpxx:City>Tampa</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33634</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>7001 Benjamin Rd</wptx1:StreetAddress>
+          <wptx1:City>Tampa</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33634</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.328400962054729" lon="-82.317343018949032">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>CCR Conveyors</name>
+    <cmt>11719 Uradco Pl
+San Antonio, FL 33576</cmt>
+    <desc>11719 Uradco Pl
+San Antonio, FL 33576</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>11719 Uradco Pl</gpxx:StreetAddress>
+          <gpxx:City>San Antonio</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33576</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>11719 Uradco Pl</wptx1:StreetAddress>
+          <wptx1:City>San Antonio</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33576</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.325402000918984" lon="-81.549043022096157">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Celebration Golf</name>
+    <cmt>950 Celebration Blvd
+Kissimmee, FL 34747</cmt>
+    <desc>950 Celebration Blvd
+Kissimmee, FL 34747</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>950 Celebration Blvd</gpxx:StreetAddress>
+          <gpxx:City>Kissimmee</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34747</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>950 Celebration Blvd</wptx1:StreetAddress>
+          <wptx1:City>Kissimmee</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34747</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.325402000918984" lon="-81.549043022096157">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Celebration Golf 1</name>
+    <cmt>950 Celebration Blvd
+Kissimmee, FL 34747</cmt>
+    <desc>950 Celebration Blvd
+Kissimmee, FL 34747</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>950 Celebration Blvd</gpxx:StreetAddress>
+          <gpxx:City>Kissimmee</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34747</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>950 Celebration Blvd</wptx1:StreetAddress>
+          <wptx1:City>Kissimmee</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34747</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="27.891802964732051" lon="-82.316896012052894">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Chiro</name>
+    <cmt>11146 Winthrop Market St
+Riverview, FL 33578</cmt>
+    <desc>11146 Winthrop Market St
+Riverview, FL 33578</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>11146 Winthrop Market St</gpxx:StreetAddress>
+          <gpxx:City>Riverview</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33578</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>11146 Winthrop Market St</wptx1:StreetAddress>
+          <wptx1:City>Riverview</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33578</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.050435008481145" lon="-82.393813971430063">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>City Of Temple Terrace</name>
+    <cmt>11250 56th St N
+Temple Terrace, FL 33617</cmt>
+    <desc>11250 56th St N
+Temple Terrace, FL 33617</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>11250 56th St N</gpxx:StreetAddress>
+          <gpxx:City>Temple Terrace</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33617</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>11250 56th St N</wptx1:StreetAddress>
+          <wptx1:City>Temple Terrace</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33617</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.050435008481145" lon="-82.393813971430063">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>City Of Temple Terrace 1</name>
+    <cmt>11250 56th St N
+Temple Terrace, FL 33617</cmt>
+    <desc>11250 56th St N
+Temple Terrace, FL 33617</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>11250 56th St N</gpxx:StreetAddress>
+          <gpxx:City>Temple Terrace</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33617</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>11250 56th St N</wptx1:StreetAddress>
+          <wptx1:City>Temple Terrace</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33617</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.132496019825339" lon="-82.434294959530234">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Crowders LS</name>
+    <cmt>2208 Wain Ranch Ln
+Lutz, FL 33549</cmt>
+    <desc>2208 Wain Ranch Ln
+Lutz, FL 33549</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>2208 Wain Ranch Ln</gpxx:StreetAddress>
+          <gpxx:City>Lutz</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33549</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>2208 Wain Ranch Ln</wptx1:StreetAddress>
+          <wptx1:City>Lutz</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33549</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.921681037172675" lon="-82.017098972573876">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Belvedere</name>
+    <cmt>479 Belvedere Blvd
+The Villages, FL 32162</cmt>
+    <desc>479 Belvedere Blvd
+The Villages, FL 32162</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>479 Belvedere Blvd</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32162</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>479 Belvedere Blvd</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32162</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.478722013533115" lon="-81.297669997438788">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE City Beautiful</name>
+    <cmt>4801 Patch Rd
+Orlando, FL 32822</cmt>
+    <desc>4801 Patch Rd
+Orlando, FL 32822</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>4801 Patch Rd</gpxx:StreetAddress>
+          <gpxx:City>Orlando</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32822</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>4801 Patch Rd</wptx1:StreetAddress>
+          <wptx1:City>Orlando</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32822</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.822407033294439" lon="-81.987054040655494">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Continental</name>
+    <cmt>50 Continental Blvd
+Wildwood, FL 34785</cmt>
+    <desc>50 Continental Blvd
+Wildwood, FL 34785</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>50 Continental Blvd</gpxx:StreetAddress>
+          <gpxx:City>Wildwood</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34785</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>50 Continental Blvd</wptx1:StreetAddress>
+          <wptx1:City>Wildwood</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34785</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.79089099355042" lon="-82.019288996234536">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Fenney</name>
+    <cmt>2600 Fenney Way
+Wildwood, FL 32163</cmt>
+    <desc>2600 Fenney Way
+Wildwood, FL 32163</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>2600 Fenney Way</gpxx:StreetAddress>
+          <gpxx:City>Wildwood</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32163</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>2600 Fenney Way</wptx1:StreetAddress>
+          <wptx1:City>Wildwood</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32163</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.79858298227191" lon="-82.010351959615946">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Fenney 1</name>
+    <cmt> Fenney Way
+Wildwood, FL 32163</cmt>
+    <desc> Fenney Way
+Wildwood, FL 32163</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>Fenney Way</gpxx:StreetAddress>
+          <gpxx:City>Wildwood</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32163</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>Fenney Way</wptx1:StreetAddress>
+          <wptx1:City>Wildwood</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32163</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.599664997309446" lon="-81.535292007029057">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Forest Lake</name>
+    <cmt>10521 Clarcona Ocoee Rd
+Apopka, FL 32703</cmt>
+    <desc>10521 Clarcona Ocoee Rd
+Apopka, FL 32703</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>10521 Clarcona Ocoee Rd</gpxx:StreetAddress>
+          <gpxx:City>Apopka</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32703</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>10521 Clarcona Ocoee Rd</wptx1:StreetAddress>
+          <wptx1:City>Apopka</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32703</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.94579803571105" lon="-82.016307972371578">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Glenview</name>
+    <cmt>13019 CR-101
+The Villages, FL 32162</cmt>
+    <desc>13019 CR-101
+The Villages, FL 32162</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>13019 CR-101</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32162</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>13019 CR-101</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32162</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.310136962682009" lon="-81.672586994245648">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Highland Presrve</name>
+    <cmt>2625 Sand Mine Rd
+Davenport, FL 33897</cmt>
+    <desc>2625 Sand Mine Rd
+Davenport, FL 33897</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>2625 Sand Mine Rd</gpxx:StreetAddress>
+          <gpxx:City>Davenport</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33897</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>2625 Sand Mine Rd</wptx1:StreetAddress>
+          <wptx1:City>Davenport</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33897</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="30.306417038664222" lon="-81.563563998788595">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Jax</name>
+    <cmt>8850 Corporate Square Ct
+Jacksonville, FL 32216</cmt>
+    <desc>8850 Corporate Square Ct
+Jacksonville, FL 32216</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>8850 Corporate Square Ct</gpxx:StreetAddress>
+          <gpxx:City>Jacksonville</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32216</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>8850 Corporate Square Ct</wptx1:StreetAddress>
+          <wptx1:City>Jacksonville</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32216</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.967352015897632" lon="-81.999398991465569">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Lopez</name>
+    <cmt>17196 SE 86th Belle Meade Cir
+The Villages, FL 32</cmt>
+    <desc>17196 SE 86th Belle Meade Cir
+The Villages, FL 32</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>17196 SE 86th Belle Meade Cir</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32162</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>17196 SE 86th Belle Meade Cir</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32162</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.894719975069165" lon="-81.973616005852818">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Mallory Hill</name>
+    <cmt>1584 Canal St
+The Villages, FL 32162</cmt>
+    <desc>1584 Canal St
+The Villages, FL 32162</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>1584 Canal St</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32162</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>1584 Canal St</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32162</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.742455998435616" lon="-81.666935998946428">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Mt Dora</name>
+    <cmt>27185 CR-448A
+Mt Dora, FL 32757</cmt>
+    <desc>27185 CR-448A
+Mt Dora, FL 32757</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>27185 CR-448A</gpxx:StreetAddress>
+          <gpxx:City>Mt Dora</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32757</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>27185 CR-448A</wptx1:StreetAddress>
+          <wptx1:City>Mt Dora</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32757</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="26.258272966369987" lon="-81.632246989756823">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Naples</name>
+    <cmt>1296 Keri Island Rd
+Naples, FL 34120</cmt>
+    <desc>1296 Keri Island Rd
+Naples, FL 34120</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>1296 Keri Island Rd</gpxx:StreetAddress>
+          <gpxx:City>Naples</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34120</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>1296 Keri Island Rd</wptx1:StreetAddress>
+          <wptx1:City>Naples</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34120</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="26.661131037399173" lon="-81.804815959185362">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Nat Blue</name>
+    <cmt>5811 Corporation Cir
+Fort Myers, FL 33905</cmt>
+    <desc>5811 Corporation Cir
+Fort Myers, FL 33905</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>5811 Corporation Cir</gpxx:StreetAddress>
+          <gpxx:City>Fort Myers</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33905</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>5811 Corporation Cir</wptx1:StreetAddress>
+          <wptx1:City>Fort Myers</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33905</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.996488014236093" lon="-82.156484993174672">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Ocala Golf</name>
+    <cmt>15607 SW 13th Cir
+Ocala, FL 34473</cmt>
+    <desc>15607 SW 13th Cir
+Ocala, FL 34473</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>15607 SW 13th Cir</gpxx:StreetAddress>
+          <gpxx:City>Ocala</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34473</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>15607 SW 13th Cir</wptx1:StreetAddress>
+          <wptx1:City>Ocala</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34473</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.996488014236093" lon="-82.156484993174672">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Ocala Golf 1</name>
+    <cmt>15607 SW 13th Cir
+Ocala, FL 34473</cmt>
+    <desc>15607 SW 13th Cir
+Ocala, FL 34473</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>15607 SW 13th Cir</gpxx:StreetAddress>
+          <gpxx:City>Ocala</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34473</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>15607 SW 13th Cir</wptx1:StreetAddress>
+          <wptx1:City>Ocala</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34473</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.948688032105565" lon="-81.947456002235413">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Orange</name>
+    <cmt>1025 Lindsey Ln Ct
+Lady Lake, FL 32159</cmt>
+    <desc>1025 Lindsey Ln Ct
+Lady Lake, FL 32159</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>1025 Lindsey Ln Ct</gpxx:StreetAddress>
+          <gpxx:City>Lady Lake</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32159</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>1025 Lindsey Ln Ct</wptx1:StreetAddress>
+          <wptx1:City>Lady Lake</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32159</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.911741022020578" lon="-82.001774003729224">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Palmer</name>
+    <cmt>1925 Rainey Trl
+The Villages, FL 32162</cmt>
+    <desc>1925 Rainey Trl
+The Villages, FL 32162</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>1925 Rainey Trl</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32162</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>1925 Rainey Trl</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32162</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.827417986467481" lon="-81.946223024278879">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Pennbrooke</name>
+    <cmt>32900 Countryside Blvd
+Leesburg, FL 34748</cmt>
+    <desc>32900 Countryside Blvd
+Leesburg, FL 34748</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>32900 Countryside Blvd</gpxx:StreetAddress>
+          <gpxx:City>Leesburg</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34748</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>32900 Countryside Blvd</wptx1:StreetAddress>
+          <wptx1:City>Leesburg</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34748</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.932366035878658" lon="-81.996936975046992">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Saddlebrook</name>
+    <cmt>2840 Saddlebrook Ln
+The Villages, FL 32162</cmt>
+    <desc>2840 Saddlebrook Ln
+The Villages, FL 32162</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>2840 Saddlebrook Ln</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32162</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>2840 Saddlebrook Ln</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32162</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.932366035878658" lon="-81.996936975046992">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Saddlebrook 1</name>
+    <cmt>2840 Saddlebrook Ln
+The Villages, FL 32162</cmt>
+    <desc>2840 Saddlebrook Ln
+The Villages, FL 32162</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>2840 Saddlebrook Ln</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32162</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>2840 Saddlebrook Ln</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32162</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.97388101555407" lon="-81.962364977225661">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Stonecrest</name>
+    <cmt>17031 SE 115th Ct
+Summerfield, FL 34491</cmt>
+    <desc>17031 SE 115th Ct
+Summerfield, FL 34491</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>17031 SE 115th Ct</gpxx:StreetAddress>
+          <gpxx:City>Summerfield</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34491</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>17031 SE 115th Ct</wptx1:StreetAddress>
+          <wptx1:City>Summerfield</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34491</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.007293017581105" lon="-82.373107988387346">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Tampa</name>
+    <cmt>6501 Orient Rd
+Tampa, FL 33610</cmt>
+    <desc>6501 Orient Rd
+Tampa, FL 33610</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>6501 Orient Rd</gpxx:StreetAddress>
+          <gpxx:City>Tampa</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33610</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>6501 Orient Rd</wptx1:StreetAddress>
+          <wptx1:City>Tampa</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33610</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.934222040697932" lon="-81.969234030693769">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Tierra Del Sol</name>
+    <cmt>801 San Marino Dr
+Lady Lake, FL 32159</cmt>
+    <desc>801 San Marino Dr
+Lady Lake, FL 32159</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>801 San Marino Dr</gpxx:StreetAddress>
+          <gpxx:City>Lady Lake</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32159</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>801 San Marino Dr</wptx1:StreetAddress>
+          <wptx1:City>Lady Lake</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32159</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.869881965219975" lon="-81.99456699192524">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Turtle Mound</name>
+    <cmt>2665 Turtle Mound Path
+The Villages, FL 32162</cmt>
+    <desc>2665 Turtle Mound Path
+The Villages, FL 32162</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>2665 Turtle Mound Path</gpxx:StreetAddress>
+          <gpxx:City>The Villages</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32162</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>2665 Turtle Mound Path</wptx1:StreetAddress>
+          <wptx1:City>The Villages</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32162</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.813783982768655" lon="-82.045619990676641">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>DTE Villages</name>
+    <cmt>3970 N US Highway 301
+Wildwood, FL 34785</cmt>
+    <desc>3970 N US Highway 301
+Wildwood, FL 34785</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>3970 N US Highway 301</gpxx:StreetAddress>
+          <gpxx:City>Wildwood</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34785</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>3970 N US Highway 301</wptx1:StreetAddress>
+          <wptx1:City>Wildwood</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34785</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="27.602401999756694" lon="-81.506195990368724">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Edgewood</name>
+    <cmt>502 N Central Ave
+Avon Park, FL 33825</cmt>
+    <desc>502 N Central Ave
+Avon Park, FL 33825</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>502 N Central Ave</gpxx:StreetAddress>
+          <gpxx:City>Avon Park</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33825</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>502 N Central Ave</wptx1:StreetAddress>
+          <wptx1:City>Avon Park</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33825</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="26.511019030585885" lon="-81.856843018904328">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Everyday Maint</name>
+    <cmt>5835 Youngquist Rd
+Fort Myers, FL 33912</cmt>
+    <desc>5835 Youngquist Rd
+Fort Myers, FL 33912</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>5835 Youngquist Rd</gpxx:StreetAddress>
+          <gpxx:City>Fort Myers</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33912</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>5835 Youngquist Rd</wptx1:StreetAddress>
+          <wptx1:City>Fort Myers</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33912</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.084849007427692" lon="-82.447114996612072">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Fieldstone LS</name>
+    <cmt>14807 N 12th St
+Lutz, FL 33549</cmt>
+    <desc>14807 N 12th St
+Lutz, FL 33549</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>14807 N 12th St</gpxx:StreetAddress>
+          <gpxx:City>Lutz</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33549</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>14807 N 12th St</wptx1:StreetAddress>
+          <wptx1:City>Lutz</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33549</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.171305991709232" lon="-82.419217005372047">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>FLA Landscape</name>
+    <cmt>3223 E County Line Rd
+Lutz, FL 33559</cmt>
+    <desc>3223 E County Line Rd
+Lutz, FL 33559</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>3223 E County Line Rd</gpxx:StreetAddress>
+          <gpxx:City>Lutz</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33559</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>3223 E County Line Rd</wptx1:StreetAddress>
+          <wptx1:City>Lutz</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33559</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="25.061784032732248" lon="121.64026801474392">
+    <ele>38.100000000000001</ele>
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Garmin Asia</name>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Address>
+          <gpxx:StreetAddress>No 68, Zhangshu 2nd Road</gpxx:StreetAddress>
+          <gpxx:City>Xizhi Dist., New Taipei City</gpxx:City>
+          <gpxx:Country>Taiwan</gpxx:Country>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Address>
+          <wptx1:StreetAddress>No 68, Zhangshu 2nd Road</wptx1:StreetAddress>
+          <wptx1:City>Xizhi Dist., New Taipei City</wptx1:City>
+          <wptx1:Country>Taiwan</wptx1:Country>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="50.901701040565968" lon="-1.489350032061338">
+    <ele>35.93</ele>
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Garmin Europe</name>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Address>
+          <gpxx:StreetAddress>Liberty House, Bulls Copse Rd</gpxx:StreetAddress>
+          <gpxx:City>Southampton</gpxx:City>
+          <gpxx:Country>UK</gpxx:Country>
+          <gpxx:PostalCode>SO40 9LR</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Address>
+          <wptx1:StreetAddress>Liberty House, Bulls Copse Rd</wptx1:StreetAddress>
+          <wptx1:City>Southampton</wptx1:City>
+          <wptx1:Country>UK</wptx1:Country>
+          <wptx1:PostalCode>SO40 9LR</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="38.855549991130829" lon="-94.799018008634448">
+    <ele>325.05000000000001</ele>
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Garmin USA</name>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Address>
+          <gpxx:StreetAddress>1200 E 151st St</gpxx:StreetAddress>
+          <gpxx:City>Olathe</gpxx:City>
+          <gpxx:State>KS</gpxx:State>
+          <gpxx:Country>USA</gpxx:Country>
+          <gpxx:PostalCode>66062-3426</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Address>
+          <wptx1:StreetAddress>1200 E 151st St</wptx1:StreetAddress>
+          <wptx1:City>Olathe</wptx1:City>
+          <wptx1:State>KS</wptx1:State>
+          <wptx1:Country>USA</wptx1:Country>
+          <wptx1:PostalCode>66062-3426</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.790905997157097" lon="-81.63196200504899">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Heartbeat Racing</name>
+    <cmt>734 S Rossiter St
+Mt Dora, FL 32757</cmt>
+    <desc>734 S Rossiter St
+Mt Dora, FL 32757</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>734 S Rossiter St</gpxx:StreetAddress>
+          <gpxx:City>Mt Dora</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32757</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>734 S Rossiter St</wptx1:StreetAddress>
+          <wptx1:City>Mt Dora</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32757</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.422385985031724" lon="-81.251225033774972">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Lake Nona</name>
+    <cmt>9763 Lake Nona Club Dr
+Orlando, FL 32827</cmt>
+    <desc>9763 Lake Nona Club Dr
+Orlando, FL 32827</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>9763 Lake Nona Club Dr</gpxx:StreetAddress>
+          <gpxx:City>Orlando</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32827</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>9763 Lake Nona Club Dr</wptx1:StreetAddress>
+          <wptx1:City>Orlando</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32827</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.422385985031724" lon="-81.251225033774972">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Lake Nona 1</name>
+    <cmt>9763 Lake Nona Club Dr
+Orlando, FL 32827</cmt>
+    <desc>9763 Lake Nona Club Dr
+Orlando, FL 32827</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>9763 Lake Nona Club Dr</gpxx:StreetAddress>
+          <gpxx:City>Orlando</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32827</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>9763 Lake Nona Club Dr</wptx1:StreetAddress>
+          <wptx1:City>Orlando</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32827</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.060875004157424" lon="-81.953289974480867">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Lakeland Regional</name>
+    <cmt>1324 Lakeland Hills Blvd
+Lakeland, FL 33805</cmt>
+    <desc>1324 Lakeland Hills Blvd
+Lakeland, FL 33805</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>1324 Lakeland Hills Blvd</gpxx:StreetAddress>
+          <gpxx:City>Lakeland</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33805</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>1324 Lakeland Hills Blvd</wptx1:StreetAddress>
+          <wptx1:City>Lakeland</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33805</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.502316987141967" lon="-81.719918008893728">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Legends GC</name>
+    <cmt>4100 S US-27
+Clermont, FL 34711</cmt>
+    <desc>4100 S US-27
+Clermont, FL 34711</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>4100 S US-27</gpxx:StreetAddress>
+          <gpxx:City>Clermont</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34711</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>4100 S US-27</wptx1:StreetAddress>
+          <wptx1:City>Clermont</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34711</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.017474012449384" lon="-82.238512979820371">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>LMP Dover</name>
+    <cmt>13050 E US-92
+Dover, FL 33527</cmt>
+    <desc>13050 E US-92
+Dover, FL 33527</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>13050 E US-92</gpxx:StreetAddress>
+          <gpxx:City>Dover</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33527</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>13050 E US-92</wptx1:StreetAddress>
+          <wptx1:City>Dover</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33527</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="26.550378017127514" lon="-81.786493035033345">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Mainscape Ft Myers</name>
+    <cmt>13279 Treeline Ave
+Fort Myers, FL 33913</cmt>
+    <desc>13279 Treeline Ave
+Fort Myers, FL 33913</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>13279 Treeline Ave</gpxx:StreetAddress>
+          <gpxx:City>Fort Myers</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33913</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>13279 Treeline Ave</wptx1:StreetAddress>
+          <wptx1:City>Fort Myers</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33913</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.316768975928426" lon="-81.600643023848534">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Mystic Dunes</name>
+    <cmt>7900 Mystic Dunes Ln
+Kissimmee, FL 34747</cmt>
+    <desc>7900 Mystic Dunes Ln
+Kissimmee, FL 34747</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>7900 Mystic Dunes Ln</gpxx:StreetAddress>
+          <gpxx:City>Kissimmee</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34747</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>7900 Mystic Dunes Ln</wptx1:StreetAddress>
+          <wptx1:City>Kissimmee</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34747</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.672818979248405" lon="-81.33765896782279">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Natures Care</name>
+    <cmt>4195 S US-17-92
+Casselberry, FL 32707</cmt>
+    <desc>4195 S US-17-92
+Casselberry, FL 32707</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>4195 S US-17-92</gpxx:StreetAddress>
+          <gpxx:City>Casselberry</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32707</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>4195 S US-17-92</wptx1:StreetAddress>
+          <wptx1:City>Casselberry</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32707</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="29.058256018906832" lon="-82.266690004616976">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Oak Run CC</name>
+    <cmt>8825 SW 110th St
+Ocala, FL 34481</cmt>
+    <desc>8825 SW 110th St
+Ocala, FL 34481</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>8825 SW 110th St</gpxx:StreetAddress>
+          <gpxx:City>Ocala</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34481</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>8825 SW 110th St</wptx1:StreetAddress>
+          <wptx1:City>Ocala</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34481</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="29.058256018906832" lon="-82.266690004616976">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Oak Run GC</name>
+    <cmt>8825 SW 110th St
+Ocala, FL 34481</cmt>
+    <desc>8825 SW 110th St
+Ocala, FL 34481</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>8825 SW 110th St</gpxx:StreetAddress>
+          <gpxx:City>Ocala</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34481</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>8825 SW 110th St</wptx1:StreetAddress>
+          <wptx1:City>Ocala</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34481</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="29.229939021170139" lon="-82.193933995440602">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Ocala Preserve</name>
+    <cmt>4174 NW 44th Ave
+Ocala, FL 34482</cmt>
+    <desc>4174 NW 44th Ave
+Ocala, FL 34482</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>4174 NW 44th Ave</gpxx:StreetAddress>
+          <gpxx:City>Ocala</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34482</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>4174 NW 44th Ave</wptx1:StreetAddress>
+          <wptx1:City>Ocala</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34482</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.441572999581695" lon="-81.62648300640285">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Orange Co Natl</name>
+    <cmt>16100 Phil Ritson Way
+Winter Garden, FL 34787</cmt>
+    <desc>16100 Phil Ritson Way
+Winter Garden, FL 34787</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>16100 Phil Ritson Way</gpxx:StreetAddress>
+          <gpxx:City>Winter Garden</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34787</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>16100 Phil Ritson Way</wptx1:StreetAddress>
+          <wptx1:City>Winter Garden</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34787</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="26.715980032458901" lon="-81.696213986724615">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>P&amp;T</name>
+    <cmt>1971 Pine Ave
+Alva, FL 33920</cmt>
+    <desc>1971 Pine Ave
+Alva, FL 33920</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>1971 Pine Ave</gpxx:StreetAddress>
+          <gpxx:City>Alva</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33920</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>1971 Pine Ave</wptx1:StreetAddress>
+          <wptx1:City>Alva</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33920</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.103634025901556" lon="-81.639771005138755">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Prince Landscaping</name>
+    <cmt>200 S F St
+Haines City, FL 33844</cmt>
+    <desc>200 S F St
+Haines City, FL 33844</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>200 S F St</gpxx:StreetAddress>
+          <gpxx:City>Haines City</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33844</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>200 S F St</wptx1:StreetAddress>
+          <wptx1:City>Haines City</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33844</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="27.940924018621445" lon="-82.041409006342292">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Pro Lawn Power Equip</name>
+    <cmt>4431 Homewood Ln
+Lakeland, FL 33811</cmt>
+    <desc>4431 Homewood Ln
+Lakeland, FL 33811</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>4431 Homewood Ln</gpxx:StreetAddress>
+          <gpxx:City>Lakeland</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33811</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>4431 Homewood Ln</wptx1:StreetAddress>
+          <wptx1:City>Lakeland</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33811</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="26.635479982942343" lon="-81.952399984002113">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>R&amp;R Sprinkler</name>
+    <cmt>931 SE 11th Ave
+Cape Coral, FL 33990</cmt>
+    <desc>931 SE 11th Ave
+Cape Coral, FL 33990</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>931 SE 11th Ave</gpxx:StreetAddress>
+          <gpxx:City>Cape Coral</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33990</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>931 SE 11th Ave</wptx1:StreetAddress>
+          <wptx1:City>Cape Coral</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33990</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.120929999276996" lon="-81.631592027842999">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Southern Dunes</name>
+    <cmt>1308 Crab St
+Haines City, FL 33844</cmt>
+    <desc>1308 Crab St
+Haines City, FL 33844</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>1308 Crab St</gpxx:StreetAddress>
+          <gpxx:City>Haines City</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33844</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>1308 Crab St</wptx1:StreetAddress>
+          <wptx1:City>Haines City</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33844</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.960297973826528" lon="-81.9826640188694">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Spruce Creek</name>
+    <cmt>18050 SE 102nd Ter
+Summerfield, FL 34491</cmt>
+    <desc>18050 SE 102nd Ter
+Summerfield, FL 34491</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>18050 SE 102nd Ter</gpxx:StreetAddress>
+          <gpxx:City>Summerfield</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34491</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>18050 SE 102nd Ter</wptx1:StreetAddress>
+          <wptx1:City>Summerfield</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34491</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="27.983508026227355" lon="-82.490137964487076">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>St Joseph's Hospital-ER</name>
+    <cmt>3001 W Dr Martin Luther King Jr Blvd
+Tampa, FL 33</cmt>
+    <desc>3001 W Dr Martin Luther King Jr Blvd
+Tampa, FL 33</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Medical Care</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>3001 W Dr Martin Luther King Jr Blvd</gpxx:StreetAddress>
+          <gpxx:City>Tampa</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33607</gpxx:PostalCode>
+        </gpxx:Address>
+        <gpxx:PhoneNumber>1 813-870-4104</gpxx:PhoneNumber>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Medical Care</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>3001 W Dr Martin Luther King Jr Blvd</wptx1:StreetAddress>
+          <wptx1:City>Tampa</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33607</wptx1:PostalCode>
+        </wptx1:Address>
+        <wptx1:PhoneNumber>1 813-870-4104</wptx1:PhoneNumber>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.733282005414367" lon="-81.301094004884362">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Total Property Maint</name>
+    <cmt>2938 Stonewall Pl
+Sanford, FL 32773</cmt>
+    <desc>2938 Stonewall Pl
+Sanford, FL 32773</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>2938 Stonewall Pl</gpxx:StreetAddress>
+          <gpxx:City>Sanford</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32773</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>2938 Stonewall Pl</wptx1:StreetAddress>
+          <wptx1:City>Sanford</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32773</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="27.360929008573294" lon="-80.32576703466475">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>United LS Ft Pierce</name>
+    <cmt>5750 S US-1
+Fort Pierce, FL 34982</cmt>
+    <desc>5750 S US-1
+Fort Pierce, FL 34982</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>5750 S US-1</gpxx:StreetAddress>
+          <gpxx:City>Fort Pierce</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34982</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>5750 S US-1</wptx1:StreetAddress>
+          <wptx1:City>Fort Pierce</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34982</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.076949985697865" lon="-81.661119963973761">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>US Lawns HC</name>
+    <cmt>3070 W Lake Hamilton Dr
+Winter Haven, FL 33881</cmt>
+    <desc>3070 W Lake Hamilton Dr
+Winter Haven, FL 33881</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>3070 W Lake Hamilton Dr</gpxx:StreetAddress>
+          <gpxx:City>Winter Haven</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33881</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>3070 W Lake Hamilton Dr</wptx1:StreetAddress>
+          <wptx1:City>Winter Haven</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33881</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.054597964510322" lon="-82.413001991808414">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>USF</name>
+    <cmt>4202 E Fowler Ave
+Tampa, FL 33620</cmt>
+    <desc>4202 E Fowler Ave
+Tampa, FL 33620</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>4202 E Fowler Ave</gpxx:StreetAddress>
+          <gpxx:City>Tampa</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33620</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>4202 E Fowler Ave</wptx1:StreetAddress>
+          <wptx1:City>Tampa</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33620</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.590925019234419" lon="-81.689053997397423">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Wes &amp; Laura</name>
+    <cmt>16040 Ridgewood Ave
+Montverde, FL 34756</cmt>
+    <desc>16040 Ridgewood Ave
+Montverde, FL 34756</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>16040 Ridgewood Ave</gpxx:StreetAddress>
+          <gpxx:City>Montverde</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34756</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>16040 Ridgewood Ave</wptx1:StreetAddress>
+          <wptx1:City>Montverde</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34756</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="29.570962032303214" lon="-82.468648022040725">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>West Farms</name>
+    <cmt>11717 SW Archer Rd
+Gainesville, FL 32608</cmt>
+    <desc>11717 SW Archer Rd
+Gainesville, FL 32608</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>11717 SW Archer Rd</gpxx:StreetAddress>
+          <gpxx:City>Gainesville</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>32608</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>11717 SW Archer Rd</wptx1:StreetAddress>
+          <wptx1:City>Gainesville</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>32608</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="27.430995013564825" lon="-82.521906970068812">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Yellowstone Bradenton</name>
+    <cmt>6180 33rd St E
+Bradenton, FL 34203</cmt>
+    <desc>6180 33rd St E
+Bradenton, FL 34203</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>6180 33rd St E</gpxx:StreetAddress>
+          <gpxx:City>Bradenton</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34203</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>6180 33rd St E</wptx1:StreetAddress>
+          <wptx1:City>Bradenton</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34203</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.038428016006947" lon="-82.521251002326608">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Yellowstone FLC</name>
+    <cmt>9506 N Trask St
+Tampa, FL 33624</cmt>
+    <desc>9506 N Trask St
+Tampa, FL 33624</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>9506 N Trask St</gpxx:StreetAddress>
+          <gpxx:City>Tampa</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33624</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>9506 N Trask St</wptx1:StreetAddress>
+          <wptx1:City>Tampa</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33624</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="28.327123979106545" lon="-82.31437498703599">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Yellowstone San Ann</name>
+    <cmt>30319 Commerce Dr
+San Antonio, FL 33576</cmt>
+    <desc>30319 Commerce Dr
+San Antonio, FL 33576</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>30319 Commerce Dr</gpxx:StreetAddress>
+          <gpxx:City>San Antonio</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>33576</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>30319 Commerce Dr</wptx1:StreetAddress>
+          <wptx1:City>San Antonio</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>33576</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+  <wpt lat="27.262932993471622" lon="-80.411811964586377">
+    <time>2025-10-16T21:47:30Z</time>
+    <name>Yellowstone St Lucie</name>
+    <cmt>2665 SW Domina Rd
+Port St Lucie, FL 34953</cmt>
+    <desc>2665 SW Domina Rd
+Port St Lucie, FL 34953</desc>
+    <sym>Flag, Blue</sym>
+    <type>user</type>
+    <extensions>
+      <gpxx:WaypointExtension>
+        <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        <gpxx:Categories>
+          <gpxx:Category>Address</gpxx:Category>
+        </gpxx:Categories>
+        <gpxx:Address>
+          <gpxx:StreetAddress>2665 SW Domina Rd</gpxx:StreetAddress>
+          <gpxx:City>Port St Lucie</gpxx:City>
+          <gpxx:State>FL</gpxx:State>
+          <gpxx:PostalCode>34953</gpxx:PostalCode>
+        </gpxx:Address>
+      </gpxx:WaypointExtension>
+      <wptx1:WaypointExtension>
+        <wptx1:DisplayMode>SymbolAndName</wptx1:DisplayMode>
+        <wptx1:Categories>
+          <wptx1:Category>Address</wptx1:Category>
+        </wptx1:Categories>
+        <wptx1:Address>
+          <wptx1:StreetAddress>2665 SW Domina Rd</wptx1:StreetAddress>
+          <wptx1:City>Port St Lucie</wptx1:City>
+          <wptx1:State>FL</wptx1:State>
+          <wptx1:PostalCode>34953</wptx1:PostalCode>
+        </wptx1:Address>
+      </wptx1:WaypointExtension>
+      <ctx:CreationTimeExtension>
+        <ctx:CreationTime>2025-10-16T21:47:30Z</ctx:CreationTime>
+      </ctx:CreationTimeExtension>
+    </extensions>
+  </wpt>
+
+</gpx>
