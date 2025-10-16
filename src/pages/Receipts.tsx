@@ -18,7 +18,10 @@ interface ReceiptData {
   amount: number;
   payment_method: string;
   notes: string;
-  image_url: string;
+  receipt_image_url: string;
+  user_id: string;
+  created_at: string;
+  updated_at: string;
 }
 
 export default function Receipts() {
