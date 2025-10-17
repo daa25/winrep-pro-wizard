@@ -53,42 +53,66 @@ export type Database = {
       customers: {
         Row: {
           address: string | null
+          city: string | null
           created_at: string | null
+          discount: number | null
           email: string | null
+          external_id: string | null
           id: string
           latitude: number | null
           longitude: number | null
           name: string
           notes: string | null
           phone: string | null
+          price_list: string | null
+          state: string | null
+          status: string | null
+          street: string | null
           updated_at: string | null
           user_id: string
+          zip_code: string | null
         }
         Insert: {
           address?: string | null
+          city?: string | null
           created_at?: string | null
+          discount?: number | null
           email?: string | null
+          external_id?: string | null
           id?: string
           latitude?: number | null
           longitude?: number | null
           name: string
           notes?: string | null
           phone?: string | null
+          price_list?: string | null
+          state?: string | null
+          status?: string | null
+          street?: string | null
           updated_at?: string | null
           user_id: string
+          zip_code?: string | null
         }
         Update: {
           address?: string | null
+          city?: string | null
           created_at?: string | null
+          discount?: number | null
           email?: string | null
+          external_id?: string | null
           id?: string
           latitude?: number | null
           longitude?: number | null
           name?: string
           notes?: string | null
           phone?: string | null
+          price_list?: string | null
+          state?: string | null
+          status?: string | null
+          street?: string | null
           updated_at?: string | null
           user_id?: string
+          zip_code?: string | null
         }
         Relationships: []
       }
@@ -215,29 +239,38 @@ export type Database = {
         Row: {
           created_at: string
           id: string
+          line_number: number | null
           order_id: string
+          product_id: string | null
           product_name: string
           quantity: number
           total_price: number
           unit_price: number
+          unit_price_after_discount: number | null
         }
         Insert: {
           created_at?: string
           id?: string
+          line_number?: number | null
           order_id: string
+          product_id?: string | null
           product_name: string
           quantity: number
           total_price: number
           unit_price: number
+          unit_price_after_discount?: number | null
         }
         Update: {
           created_at?: string
           id?: string
+          line_number?: number | null
           order_id?: string
+          product_id?: string | null
           product_name?: string
           quantity?: number
           total_price?: number
           unit_price?: number
+          unit_price_after_discount?: number | null
         }
         Relationships: [
           {
@@ -254,11 +287,20 @@ export type Database = {
           created_at: string
           customer_email: string
           customer_name: string
+          delivery_date: string | null
+          external_id: string | null
           id: string
           notes: string | null
           order_date: string
+          quantities_total: number | null
+          reference: string | null
+          remark: string | null
           status: string
+          sub_total: number | null
+          sub_type: string | null
+          tax_total: number | null
           total_amount: number
+          type: string | null
           updated_at: string
           user_id: string
         }
@@ -266,11 +308,20 @@ export type Database = {
           created_at?: string
           customer_email: string
           customer_name: string
+          delivery_date?: string | null
+          external_id?: string | null
           id?: string
           notes?: string | null
           order_date?: string
+          quantities_total?: number | null
+          reference?: string | null
+          remark?: string | null
           status?: string
+          sub_total?: number | null
+          sub_type?: string | null
+          tax_total?: number | null
           total_amount: number
+          type?: string | null
           updated_at?: string
           user_id: string
         }
@@ -278,11 +329,65 @@ export type Database = {
           created_at?: string
           customer_email?: string
           customer_name?: string
+          delivery_date?: string | null
+          external_id?: string | null
           id?: string
           notes?: string | null
           order_date?: string
+          quantities_total?: number | null
+          reference?: string | null
+          remark?: string | null
           status?: string
+          sub_total?: number | null
+          sub_type?: string | null
+          tax_total?: number | null
           total_amount?: number
+          type?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      products: {
+        Row: {
+          category: string | null
+          created_at: string
+          external_id: string
+          hidden: boolean | null
+          id: string
+          inventory: number | null
+          long_description: string | null
+          name: string
+          price: number
+          unit_of_measure: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string
+          external_id: string
+          hidden?: boolean | null
+          id?: string
+          inventory?: number | null
+          long_description?: string | null
+          name: string
+          price?: number
+          unit_of_measure?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          category?: string | null
+          created_at?: string
+          external_id?: string
+          hidden?: boolean | null
+          id?: string
+          inventory?: number | null
+          long_description?: string | null
+          name?: string
+          price?: number
+          unit_of_measure?: string | null
           updated_at?: string
           user_id?: string
         }

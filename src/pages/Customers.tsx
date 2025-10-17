@@ -1,33 +1,71 @@
 import { useState, useEffect } from "react";
-import { Card } from "@/components/ui/card";
+import Layout from "@/components/Layout";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Upload, MapPin, Mail, Phone } from "lucide-react";
+import { Users, Search, Plus, Edit, Trash2, RefreshCw, Upload, MapPin } from "lucide-react";
 
 interface Customer {
   id: string;
+  external_id?: string;
   name: string;
-  address: string | null;
-  latitude: number | null;
-  longitude: number | null;
-  phone: string | null;
-  email: string | null;
-  notes: string | null;
+  address?: string;
+  street?: string;
+  city?: string;
+  state?: string;
+  zip_code?: string;
+  phone?: string;
+  email?: string;
+  notes?: string;
+  status?: string;
+  discount?: number;
+  price_list?: string;
+  latitude?: number;
+  longitude?: number;
+  created_at: string;
+  updated_at: string;
 }
 
 const Customers = () => {
   const [customers, setCustomers] = useState<Customer[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(false);
-  const [importing, setImporting] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [editingCustomer, setEditingCustomer] = useState<Customer | null>(null);
+  const [formData, setFormData] = useState({
+    external_id: "",
+    name: "",
+    street: "",
+    city: "",
+    state: "",
+    zip_code: "",
+    phone: "",
+    email: "",
+    notes: "",
+    status: "active",
+    discount: "0",
+    price_list: "standard",
+  });
   const { toast } = useToast();
 
   const fetchCustomers = async () => {
     setLoading(true);
     try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) throw new Error("Not authenticated");
+
       const { data, error } = await supabase
         .from("customers")
         .select("*")
+        .eq("user_id", user.id)
         .order("name");
 
       if (error) throw error;
@@ -45,139 +83,467 @@ const Customers = () => {
 
   useEffect(() => {
     fetchCustomers();
+
+    const channel = supabase
+      .channel("customers-changes")
+      .on("postgres_changes", { event: "*", schema: "public", table: "customers" }, () => {
+        fetchCustomers();
+      })
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
-  const parseGPX = async (gpxText: string) => {
-    const parser = new DOMParser();
-    const xmlDoc = parser.parseFromString(gpxText, "text/xml");
-    const waypoints = xmlDoc.getElementsByTagName("wpt");
-    const parsedCustomers = [];
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) {
+      toast({
+        title: "Error",
+        description: "You must be logged in",
+        variant: "destructive",
+      });
+      return;
+    }
 
-    for (let i = 0; i < waypoints.length; i++) {
-      const wpt = waypoints[i];
-      const lat = parseFloat(wpt.getAttribute("lat") || "0");
-      const lon = parseFloat(wpt.getAttribute("lon") || "0");
-      const name = wpt.getElementsByTagName("name")[0]?.textContent || "";
-      const desc = wpt.getElementsByTagName("desc")[0]?.textContent || "";
+    const customerData = {
+      ...formData,
+      discount: parseFloat(formData.discount) || 0,
+      user_id: user.id,
+    };
 
-      parsedCustomers.push({
-        name,
-        address: desc,
-        latitude: lat,
-        longitude: lon,
+    if (editingCustomer) {
+      const { error } = await supabase
+        .from("customers")
+        .update(customerData)
+        .eq("id", editingCustomer.id);
+
+      if (error) {
+        toast({
+          title: "Error updating customer",
+          description: error.message,
+          variant: "destructive",
+        });
+        return;
+      }
+
+      toast({
+        title: "Customer updated successfully",
+      });
+    } else {
+      const { error } = await supabase.from("customers").insert([customerData]);
+
+      if (error) {
+        toast({
+          title: "Error creating customer",
+          description: error.message,
+          variant: "destructive",
+        });
+        return;
+      }
+
+      toast({
+        title: "Customer created successfully",
       });
     }
 
-    return parsedCustomers;
+    resetForm();
+    setIsDialogOpen(false);
+    setEditingCustomer(null);
   };
 
-  const importGPXAddresses = async () => {
-    setImporting(true);
-    try {
-      // Fetch the GPX file from public folder
-      const response = await fetch("/New_List.gpx");
-      const gpxText = await response.text();
+  const resetForm = () => {
+    setFormData({
+      external_id: "",
+      name: "",
+      street: "",
+      city: "",
+      state: "",
+      zip_code: "",
+      phone: "",
+      email: "",
+      notes: "",
+      status: "active",
+      discount: "0",
+      price_list: "standard",
+    });
+  };
 
-      const parsedCustomers = await parseGPX(gpxText);
+  const handleEdit = (customer: Customer) => {
+    setEditingCustomer(customer);
+    setFormData({
+      external_id: customer.external_id || "",
+      name: customer.name,
+      street: customer.street || "",
+      city: customer.city || "",
+      state: customer.state || "",
+      zip_code: customer.zip_code || "",
+      phone: customer.phone || "",
+      email: customer.email || "",
+      notes: customer.notes || "",
+      status: customer.status || "active",
+      discount: customer.discount?.toString() || "0",
+      price_list: customer.price_list || "standard",
+    });
+    setIsDialogOpen(true);
+  };
 
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) throw new Error("Not authenticated");
+  const handleDelete = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this customer?")) return;
 
-      // Insert customers into database
-      const customersToInsert = parsedCustomers.map(customer => ({
-        ...customer,
-        user_id: user.id,
-      }));
+    const { error } = await supabase.from("customers").delete().eq("id", id);
 
-      const { error } = await supabase
-        .from("customers")
-        .insert(customersToInsert);
-
-      if (error) throw error;
-
+    if (error) {
       toast({
-        title: "Success",
-        description: `Imported ${parsedCustomers.length} addresses from GPX file`,
-      });
-
-      fetchCustomers();
-    } catch (error: any) {
-      toast({
-        title: "Error",
+        title: "Error deleting customer",
         description: error.message,
         variant: "destructive",
       });
-    } finally {
-      setImporting(false);
+      return;
+    }
+
+    toast({
+      title: "Customer deleted successfully",
+    });
+  };
+
+  const filteredCustomers = customers.filter(
+    (customer) =>
+      customer.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      customer.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      customer.external_id?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      customer.city?.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const getStatusColor = (status?: string) => {
+    switch (status?.toLowerCase()) {
+      case "active":
+        return "default";
+      case "inactive":
+        return "destructive";
+      case "pending":
+        return "secondary";
+      default:
+        return "outline";
     }
   };
 
+  const stats = [
+    {
+      title: "Total Customers",
+      value: customers.length,
+      icon: Users,
+    },
+    {
+      title: "Active Customers",
+      value: customers.filter((c) => c.status === "active").length,
+      icon: Users,
+    },
+  ];
+
   return (
-    <div className="container mx-auto p-6 space-y-6">
-      <div className="flex justify-between items-center">
-        <div>
-          <h1 className="text-3xl font-bold">Customer Addresses</h1>
-          <p className="text-muted-foreground">
-            Manage your customer locations and contact information
-          </p>
+    <Layout>
+      <div className="space-y-6">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight">Customer Accounts</h1>
+            <p className="text-muted-foreground mt-2">
+              Manage customer accounts, pricing, and contact information
+            </p>
+          </div>
+          <Dialog
+            open={isDialogOpen}
+            onOpenChange={(open) => {
+              setIsDialogOpen(open);
+              if (!open) {
+                setEditingCustomer(null);
+                resetForm();
+              }
+            }}
+          >
+            <DialogTrigger asChild>
+              <Button>
+                <Plus className="w-4 h-4 mr-2" />
+                New Customer
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-2xl">
+              <DialogHeader>
+                <DialogTitle>{editingCustomer ? "Edit Customer" : "Add New Customer"}</DialogTitle>
+                <DialogDescription>
+                  {editingCustomer ? "Update customer details" : "Add a new customer account"}
+                </DialogDescription>
+              </DialogHeader>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="external_id">Customer ID</Label>
+                    <Input
+                      id="external_id"
+                      value={formData.external_id}
+                      onChange={(e) => setFormData({ ...formData, external_id: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Name</Label>
+                    <Input
+                      id="name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="street">Street Address</Label>
+                  <Input
+                    id="street"
+                    value={formData.street}
+                    onChange={(e) => setFormData({ ...formData, street: e.target.value })}
+                  />
+                </div>
+
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="city">City</Label>
+                    <Input
+                      id="city"
+                      value={formData.city}
+                      onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="state">State</Label>
+                    <Input
+                      id="state"
+                      value={formData.state}
+                      onChange={(e) => setFormData({ ...formData, state: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="zip_code">Zip Code</Label>
+                    <Input
+                      id="zip_code"
+                      value={formData.zip_code}
+                      onChange={(e) => setFormData({ ...formData, zip_code: e.target.value })}
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">Phone</Label>
+                    <Input
+                      id="phone"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="status">Status</Label>
+                    <Select
+                      value={formData.status}
+                      onValueChange={(value) => setFormData({ ...formData, status: value })}
+                    >
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="active">Active</SelectItem>
+                        <SelectItem value="inactive">Inactive</SelectItem>
+                        <SelectItem value="pending">Pending</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="discount">Discount (%)</Label>
+                    <Input
+                      id="discount"
+                      type="number"
+                      step="0.01"
+                      value={formData.discount}
+                      onChange={(e) => setFormData({ ...formData, discount: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="price_list">Price List</Label>
+                    <Select
+                      value={formData.price_list}
+                      onValueChange={(value) => setFormData({ ...formData, price_list: value })}
+                    >
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="standard">Standard</SelectItem>
+                        <SelectItem value="premium">Premium</SelectItem>
+                        <SelectItem value="wholesale">Wholesale</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="notes">Notes</Label>
+                  <Textarea
+                    id="notes"
+                    value={formData.notes}
+                    onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                    rows={3}
+                  />
+                </div>
+
+                <div className="flex justify-end gap-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => {
+                      setIsDialogOpen(false);
+                      setEditingCustomer(null);
+                      resetForm();
+                    }}
+                  >
+                    Cancel
+                  </Button>
+                  <Button type="submit">
+                    {editingCustomer ? "Update Customer" : "Create Customer"}
+                  </Button>
+                </div>
+              </form>
+            </DialogContent>
+          </Dialog>
         </div>
-        <Button onClick={importGPXAddresses} disabled={importing}>
-          <Upload className="mr-2 h-4 w-4" />
-          {importing ? "Importing..." : "Import GPX Addresses"}
-        </Button>
-      </div>
 
-      {loading ? (
-        <div className="text-center py-12">Loading customers...</div>
-      ) : customers.length === 0 ? (
-        <Card className="p-12 text-center">
-          <Upload className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-          <h3 className="text-lg font-semibold mb-2">No customers yet</h3>
-          <p className="text-muted-foreground mb-4">
-            Import your GPX file to get started
-          </p>
-          <Button onClick={importGPXAddresses} disabled={importing}>
-            <Upload className="mr-2 h-4 w-4" />
-            {importing ? "Importing..." : "Import GPX Addresses"}
-          </Button>
-        </Card>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {customers.map((customer) => (
-            <Card key={customer.id} className="p-4 hover:shadow-lg transition-shadow">
-              <h3 className="font-semibold text-lg mb-3">{customer.name}</h3>
-              
-              {customer.address && (
-                <div className="flex items-start gap-2 text-sm text-muted-foreground mb-2">
-                  <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                  <span>{customer.address}</span>
-                </div>
-              )}
-
-              {customer.email && (
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                  <Mail className="h-4 w-4 flex-shrink-0" />
-                  <span>{customer.email}</span>
-                </div>
-              )}
-
-              {customer.phone && (
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                  <Phone className="h-4 w-4 flex-shrink-0" />
-                  <span>{customer.phone}</span>
-                </div>
-              )}
-
-              {customer.latitude && customer.longitude && (
-                <div className="mt-3 pt-3 border-t text-xs text-muted-foreground">
-                  Coordinates: {customer.latitude.toFixed(6)}, {customer.longitude.toFixed(6)}
-                </div>
-              )}
+        <div className="grid gap-4 md:grid-cols-2">
+          {stats.map((stat) => (
+            <Card key={stat.title}>
+              <CardHeader className="flex flex-row items-center justify-between pb-2">
+                <CardTitle className="text-sm font-medium">{stat.title}</CardTitle>
+                <stat.icon className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">{stat.value}</div>
+              </CardContent>
             </Card>
           ))}
         </div>
-      )}
-    </div>
+
+        <Card>
+          <CardHeader>
+            <div className="flex items-center gap-2">
+              <Search className="w-4 h-4 text-muted-foreground" />
+              <Input
+                placeholder="Search customers by name, email, ID, or city..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="max-w-sm"
+              />
+              {searchTerm && (
+                <Button variant="outline" size="sm" onClick={() => setSearchTerm("")}>
+                  Clear
+                </Button>
+              )}
+              <Button variant="outline" size="sm" onClick={fetchCustomers} className="ml-auto">
+                <RefreshCw className="w-4 h-4 mr-2" />
+                Refresh
+              </Button>
+            </div>
+          </CardHeader>
+          <CardContent>
+            {loading ? (
+              <div className="text-center py-8">
+                <RefreshCw className="w-6 h-6 animate-spin mx-auto mb-2" />
+                <p>Loading customers...</p>
+              </div>
+            ) : filteredCustomers.length === 0 ? (
+              <div className="text-center py-8">
+                <Users className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
+                <p className="text-lg font-medium">No customers found</p>
+                <p className="text-sm text-muted-foreground">
+                  {searchTerm ? "Try adjusting your search" : "Add your first customer to get started"}
+                </p>
+              </div>
+            ) : (
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Name</TableHead>
+                    <TableHead>ID</TableHead>
+                    <TableHead>Contact</TableHead>
+                    <TableHead>Location</TableHead>
+                    <TableHead>Status</TableHead>
+                    <TableHead>Discount</TableHead>
+                    <TableHead>Price List</TableHead>
+                    <TableHead>Actions</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filteredCustomers.map((customer) => (
+                    <TableRow key={customer.id}>
+                      <TableCell className="font-medium">{customer.name}</TableCell>
+                      <TableCell>
+                        {customer.external_id && (
+                          <Badge variant="outline">{customer.external_id}</Badge>
+                        )}
+                      </TableCell>
+                      <TableCell>
+                        <div className="text-sm">
+                          {customer.email && <div>{customer.email}</div>}
+                          {customer.phone && <div className="text-muted-foreground">{customer.phone}</div>}
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="text-sm">
+                          {customer.city && customer.state && (
+                            <div>
+                              {customer.city}, {customer.state}
+                            </div>
+                          )}
+                          {customer.street && <div className="text-muted-foreground line-clamp-1">{customer.street}</div>}
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <Badge variant={getStatusColor(customer.status)}>
+                          {customer.status || "active"}
+                        </Badge>
+                      </TableCell>
+                      <TableCell>{customer.discount || 0}%</TableCell>
+                      <TableCell>{customer.price_list || "standard"}</TableCell>
+                      <TableCell>
+                        <div className="flex gap-2">
+                          <Button size="sm" variant="outline" onClick={() => handleEdit(customer)}>
+                            <Edit className="w-4 h-4" />
+                          </Button>
+                          <Button size="sm" variant="outline" onClick={() => handleDelete(customer.id)}>
+                            <Trash2 className="w-4 h-4" />
+                          </Button>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            )}
+          </CardContent>
+        </Card>
+      </div>
+    </Layout>
   );
 };
 

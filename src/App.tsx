@@ -17,6 +17,7 @@ import EmailDrafting from "./pages/EmailDrafting";
 import PredictiveAnalysis from "./pages/PredictiveAnalysis";
 import RouteOptimization from "./pages/RouteOptimization";
 import Customers from "./pages/Customers";
+import Products from "./pages/Products";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/predictive-analysis" element={<ProtectedRoute><PredictiveAnalysis /></ProtectedRoute>} />
           <Route path="/route-optimization" element={<ProtectedRoute><RouteOptimization /></ProtectedRoute>} />
           <Route path="/customers" element={<ProtectedRoute><Customers /></ProtectedRoute>} />
+          <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
           <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
