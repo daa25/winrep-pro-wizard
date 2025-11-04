@@ -13,6 +13,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Package, Search, Plus, Edit, Trash2, RefreshCw, DollarSign, Eye } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { productSchema } from "@/lib/validationSchemas";
 
 interface Product {
   id: string;
@@ -144,14 +145,30 @@ const Products = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const productData = {
+    
+    // Validate input
+    const validationData = {
       external_id: formData.external_id,
       name: formData.name,
       long_description: formData.long_description,
       price: parseFloat(formData.price) || 0,
+      inventory: parseInt(formData.inventory) || 0,
       unit_of_measure: formData.unit_of_measure,
       category: formData.category,
-      inventory: parseInt(formData.inventory) || 0,
+    };
+    
+    const result = productSchema.safeParse(validationData);
+    if (!result.success) {
+      toast({ 
+        title: "Validation Error", 
+        description: result.error.errors[0].message, 
+        variant: "destructive" 
+      });
+      return;
+    }
+    
+    const productData = {
+      ...result.data,
       hidden: false,
     };
 

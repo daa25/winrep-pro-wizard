@@ -10,6 +10,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { receiptSchema } from "@/lib/validationSchemas";
 
 interface ReceiptData {
   id: string;
@@ -82,14 +83,28 @@ export default function Receipts() {
     if (!user) return;
 
     try {
+      // Validate input
+      const validationData = {
+        receipt_number: newReceipt.receipt_number,
+        amount: parseFloat(newReceipt.amount) || 0,
+        payment_method: newReceipt.payment_method,
+        notes: newReceipt.notes,
+      };
+      
+      const result = receiptSchema.safeParse(validationData);
+      if (!result.success) {
+        toast.error(result.error.errors[0].message);
+        return;
+      }
+
       const { error } = await supabase
         .from('receipts')
         .insert([{
           user_id: user.id,
-          receipt_number: newReceipt.receipt_number,
-          amount: parseFloat(newReceipt.amount),
-          payment_method: newReceipt.payment_method,
-          notes: newReceipt.notes
+          receipt_number: result.data.receipt_number,
+          amount: result.data.amount,
+          payment_method: result.data.payment_method,
+          notes: result.data.notes,
         }]);
 
       if (error) throw error;

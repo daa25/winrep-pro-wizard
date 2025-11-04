@@ -12,6 +12,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
+import { orderSchema } from "@/lib/validationSchemas";
 
 interface Order {
   id: string;
@@ -82,15 +83,30 @@ export default function Orders() {
     if (!user) return;
 
     try {
+      // Validate input
+      const validationData = {
+        customer_name: newOrder.customer_name,
+        customer_email: newOrder.customer_email,
+        total_amount: parseFloat(newOrder.total_amount) || 0,
+        status: newOrder.status,
+        notes: newOrder.notes,
+      };
+      
+      const result = orderSchema.safeParse(validationData);
+      if (!result.success) {
+        toast.error(result.error.errors[0].message);
+        return;
+      }
+
       const { error } = await supabase
         .from('orders')
         .insert([{
           user_id: user.id,
-          customer_name: newOrder.customer_name,
-          customer_email: newOrder.customer_email,
-          total_amount: parseFloat(newOrder.total_amount),
-          status: newOrder.status,
-          notes: newOrder.notes
+          customer_name: result.data.customer_name,
+          customer_email: result.data.customer_email,
+          total_amount: result.data.total_amount,
+          status: result.data.status,
+          notes: result.data.notes,
         }]);
 
       if (error) throw error;

@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import { authSchema } from "@/lib/validationSchemas";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -30,6 +31,20 @@ const Auth = () => {
     setLoading(true);
 
     try {
+      // Validate input
+      const validationData = {
+        email,
+        password,
+        ...(isLogin ? {} : { fullName }),
+      };
+      
+      const result = authSchema.safeParse(validationData);
+      if (!result.success) {
+        toast.error(result.error.errors[0].message);
+        setLoading(false);
+        return;
+      }
+
       if (isLogin) {
         const { error } = await supabase.auth.signInWithPassword({
           email,
@@ -85,6 +100,7 @@ const Auth = () => {
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   required
+                  maxLength={100}
                 />
               </div>
             )}
@@ -97,6 +113,7 @@ const Auth = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                maxLength={255}
               />
             </div>
             <div className="space-y-2">
@@ -108,7 +125,8 @@ const Auth = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                minLength={6}
+                minLength={8}
+                maxLength={100}
               />
             </div>
             <Button type="submit" className="w-full" disabled={loading}>

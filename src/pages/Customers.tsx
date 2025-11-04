@@ -12,6 +12,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Users, Search, Plus, Edit, Trash2, RefreshCw, Upload, MapPin } from "lucide-react";
+import { customerSchema } from "@/lib/validationSchemas";
 
 interface Customer {
   id: string;
@@ -109,9 +110,35 @@ const Customers = () => {
       return;
     }
 
-    const customerData = {
+    // Validate input
+    const validationData = {
       ...formData,
       discount: parseFloat(formData.discount) || 0,
+    };
+    
+    const result = customerSchema.safeParse(validationData);
+    if (!result.success) {
+      toast({
+        title: "Validation Error",
+        description: result.error.errors[0].message,
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const customerData = {
+      external_id: formData.external_id,
+      name: formData.name,
+      street: formData.street,
+      city: formData.city,
+      state: formData.state,
+      zip_code: formData.zip_code,
+      phone: formData.phone,
+      email: formData.email,
+      notes: formData.notes,
+      status: formData.status,
+      discount: result.data.discount,
+      price_list: formData.price_list,
       user_id: user.id,
     };
 
