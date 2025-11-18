@@ -84,8 +84,11 @@ const Auth = () => {
     setResetLoading(true);
 
     try {
+      // Use the full URL with the auth path for password reset
+      const redirectUrl = `${window.location.origin}/auth?type=recovery`;
+      
       const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
-        redirectTo: `${window.location.origin}/auth`,
+        redirectTo: redirectUrl,
       });
 
       if (error) throw error;
