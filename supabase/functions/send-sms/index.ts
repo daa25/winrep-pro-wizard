@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -24,11 +25,32 @@ serve(async (req) => {
       throw new Error("Unauthorized");
     }
 
-    const { phoneNumber, message, customerId } = await req.json();
+    // Input validation schema
+    const smsSchema = z.object({
+      phoneNumber: z.string()
+        .regex(/^\+?[1-9]\d{1,14}$/, 'Invalid phone number format')
+        .max(20, 'Phone number too long'),
+      message: z.string()
+        .min(1, 'Message cannot be empty')
+        .max(1600, 'Message exceeds SMS limit'),
+      customerId: z.string().uuid().optional()
+    });
 
-    if (!phoneNumber || !message) {
-      throw new Error("Phone number and message are required");
+    let validatedInput;
+    try {
+      const requestBody = await req.json();
+      validatedInput = smsSchema.parse(requestBody);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return new Response(
+          JSON.stringify({ error: 'Validation failed', details: error.errors }),
+          { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+      throw error;
     }
+
+    const { phoneNumber, message, customerId } = validatedInput;
 
     console.log("Processing SMS request");
 
