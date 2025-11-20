@@ -6,6 +6,13 @@ const corsHeaders = {
 };
 
 Deno.serve(async (req) => {
+  const startTime = Date.now();
+  const functionName = 'optimize-route';
+  let userId: string | null = null;
+  let statusCode = 200;
+  let errorMessage: string | null = null;
+  let supabaseClient: any = null;
+
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -15,27 +22,60 @@ Deno.serve(async (req) => {
     const authHeader = req.headers.get('Authorization');
     if (!authHeader) {
       console.error('No authorization header provided');
+      statusCode = 401;
+      errorMessage = 'Unauthorized - No auth header';
       return new Response(
-        JSON.stringify({ error: 'Unauthorized - No auth header' }),
-        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        JSON.stringify({ error: errorMessage }),
+        { status: statusCode, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
     // Import createClient dynamically
     const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2');
     
-    const supabaseClient = createClient(
+    supabaseClient = createClient(
       Deno.env.get('SUPABASE_URL') ?? '',
-      Deno.env.get('SUPABASE_ANON_KEY') ?? '',
+      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '',
       { global: { headers: { Authorization: authHeader } } }
     );
 
     const { data: { user }, error: authError } = await supabaseClient.auth.getUser();
     if (authError || !user) {
       console.error('Authentication failed:', authError?.message);
+      statusCode = 401;
+      errorMessage = 'Unauthorized - Invalid token';
       return new Response(
-        JSON.stringify({ error: 'Unauthorized - Invalid token' }),
-        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        JSON.stringify({ error: errorMessage }),
+        { status: statusCode, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    userId = user.id;
+
+    // Check rate limit: 20 requests per minute
+    const { data: rateLimitOk } = await supabaseClient.rpc('check_rate_limit', {
+      p_user_id: userId,
+      p_function_name: functionName,
+      p_max_requests: 20,
+      p_window_minutes: 1
+    });
+
+    if (!rateLimitOk) {
+      statusCode = 429;
+      errorMessage = "Rate limit exceeded. Please try again later.";
+      
+      await supabaseClient.from('edge_function_logs').insert({
+        user_id: userId,
+        function_name: functionName,
+        method: req.method,
+        status_code: statusCode,
+        response_time_ms: Date.now() - startTime,
+        error_message: errorMessage
+      });
+
+      return new Response(
+        JSON.stringify({ error: errorMessage }),
+        { status: statusCode, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
@@ -142,15 +182,41 @@ Format as JSON object with keys: totalDistance, totalTime, gasStations (array wi
       };
     }
 
+    // Log successful request
+    if (supabaseClient) {
+      await supabaseClient.from('edge_function_logs').insert({
+        user_id: userId,
+        function_name: functionName,
+        method: req.method,
+        status_code: statusCode,
+        response_time_ms: Date.now() - startTime
+      });
+    }
+
     return new Response(JSON.stringify(routeData), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (error) {
     console.error("Error in optimize-route:", error);
+    statusCode = 500;
+    errorMessage = error instanceof Error ? error.message : "Unknown error";
+
+    // Log failed request
+    if (supabaseClient && userId) {
+      await supabaseClient.from('edge_function_logs').insert({
+        user_id: userId,
+        function_name: functionName,
+        method: req.method,
+        status_code: statusCode,
+        response_time_ms: Date.now() - startTime,
+        error_message: errorMessage
+      });
+    }
+
     return new Response(
-      JSON.stringify({ error: error instanceof Error ? error.message : "Unknown error" }),
+      JSON.stringify({ error: errorMessage }),
       {
-        status: 500,
+        status: statusCode,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       }
     );
