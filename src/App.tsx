@@ -19,6 +19,7 @@ import RouteOptimization from "./pages/RouteOptimization";
 import Customers from "./pages/Customers";
 import Products from "./pages/Products";
 import Settings from "./pages/Settings";
+import EdgeFunctionMonitoring from "./pages/EdgeFunctionMonitoring";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -45,6 +46,7 @@ const App = () => (
           <Route path="/customers" element={<ProtectedRoute><Customers /></ProtectedRoute>} />
           <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
           <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+          <Route path="/monitoring" element={<ProtectedRoute><EdgeFunctionMonitoring /></ProtectedRoute>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
