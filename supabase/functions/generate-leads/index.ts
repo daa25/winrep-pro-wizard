@@ -46,7 +46,7 @@ Deno.serve(async (req) => {
       throw new Error("OPENAI_API_KEY not configured");
     }
 
-    console.log("Generating leads for route:", route, "radius:", radius);
+    console.log("Processing lead generation request");
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",

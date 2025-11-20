@@ -36,7 +36,7 @@ serve(async (req) => {
       throw new Error("Google Maps API key not configured");
     }
 
-    console.log("Geocoding address:", address);
+    console.log("Processing geocoding request");
 
     const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${googleMapsApiKey}`;
 
