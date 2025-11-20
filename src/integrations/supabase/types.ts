@@ -116,6 +116,69 @@ export type Database = {
         }
         Relationships: []
       }
+      follow_up_tasks: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          customer_id: string | null
+          description: string | null
+          due_date: string
+          id: string
+          order_id: string | null
+          priority: string
+          status: string
+          task_type: string
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          customer_id?: string | null
+          description?: string | null
+          due_date: string
+          id?: string
+          order_id?: string | null
+          priority?: string
+          status?: string
+          task_type: string
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          customer_id?: string | null
+          description?: string | null
+          due_date?: string
+          id?: string
+          order_id?: string | null
+          priority?: string
+          status?: string
+          task_type?: string
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "follow_up_tasks_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "follow_up_tasks_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       invoices: {
         Row: {
           created_at: string
@@ -462,6 +525,90 @@ export type Database = {
         }
         Relationships: []
       }
+      route_template_customers: {
+        Row: {
+          created_at: string
+          customer_id: string
+          estimated_duration_minutes: number | null
+          id: string
+          notes: string | null
+          route_template_id: string
+          stop_order: number
+        }
+        Insert: {
+          created_at?: string
+          customer_id: string
+          estimated_duration_minutes?: number | null
+          id?: string
+          notes?: string | null
+          route_template_id: string
+          stop_order?: number
+        }
+        Update: {
+          created_at?: string
+          customer_id?: string
+          estimated_duration_minutes?: number | null
+          id?: string
+          notes?: string | null
+          route_template_id?: string
+          stop_order?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "route_template_customers_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "route_template_customers_route_template_id_fkey"
+            columns: ["route_template_id"]
+            isOneToOne: false
+            referencedRelation: "route_templates"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      route_templates: {
+        Row: {
+          created_at: string
+          day_of_week: number
+          id: string
+          is_active: boolean
+          notes: string | null
+          route_name: string
+          sequence_order: number
+          updated_at: string
+          user_id: string
+          week_type: string
+        }
+        Insert: {
+          created_at?: string
+          day_of_week: number
+          id?: string
+          is_active?: boolean
+          notes?: string | null
+          route_name: string
+          sequence_order?: number
+          updated_at?: string
+          user_id: string
+          week_type: string
+        }
+        Update: {
+          created_at?: string
+          day_of_week?: number
+          id?: string
+          is_active?: boolean
+          notes?: string | null
+          route_name?: string
+          sequence_order?: number
+          updated_at?: string
+          user_id?: string
+          week_type?: string
+        }
+        Relationships: []
+      }
       sales_reports: {
         Row: {
           created_at: string
@@ -518,6 +665,56 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      sms_notifications: {
+        Row: {
+          created_at: string
+          customer_id: string | null
+          delivered_at: string | null
+          error_message: string | null
+          id: string
+          message: string
+          phone_number: string
+          sent_at: string | null
+          status: string
+          twilio_sid: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          customer_id?: string | null
+          delivered_at?: string | null
+          error_message?: string | null
+          id?: string
+          message: string
+          phone_number: string
+          sent_at?: string | null
+          status?: string
+          twilio_sid?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          customer_id?: string | null
+          delivered_at?: string | null
+          error_message?: string | null
+          id?: string
+          message?: string
+          phone_number?: string
+          sent_at?: string | null
+          status?: string
+          twilio_sid?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sms_notifications_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       user_roles: {
         Row: {
