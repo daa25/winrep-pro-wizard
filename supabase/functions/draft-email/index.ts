@@ -37,7 +37,7 @@ Deno.serve(async (req) => {
       );
     }
 
-    console.log('Request from authenticated user:', user.id);
+    console.log('Processing authenticated email draft request');
 
     const { companyName, companyWebsite, products } = await req.json();
     const OPENAI_API_KEY = Deno.env.get("OPENAI_API_KEY");
@@ -46,7 +46,7 @@ Deno.serve(async (req) => {
       throw new Error("OPENAI_API_KEY not configured");
     }
 
-    console.log("Drafting email for:", companyName);
+    console.log("Generating email draft");
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",

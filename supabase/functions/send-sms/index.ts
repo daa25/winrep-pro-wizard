@@ -30,7 +30,7 @@ serve(async (req) => {
       throw new Error("Phone number and message are required");
     }
 
-    console.log("Sending SMS to:", phoneNumber);
+    console.log("Processing SMS request");
 
     const twilioAccountSid = Deno.env.get("TWILIO_ACCOUNT_SID");
     const twilioAuthToken = Deno.env.get("TWILIO_AUTH_TOKEN");
@@ -99,7 +99,7 @@ serve(async (req) => {
       })
       .eq("id", notification.id);
 
-    console.log("SMS sent successfully:", twilioData.sid);
+    console.log("SMS sent successfully with SID:", twilioData.sid);
 
     return new Response(
       JSON.stringify({ 
