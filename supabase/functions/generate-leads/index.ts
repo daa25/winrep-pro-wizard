@@ -1,3 +1,5 @@
+import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
+
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
@@ -39,7 +41,31 @@ Deno.serve(async (req) => {
 
     console.log('Request from authenticated user:', user.id);
 
-    const { route, radius } = await req.json();
+    // Input validation schema
+    const leadsSchema = z.object({
+      route: z.string()
+        .min(1, 'Route cannot be empty')
+        .max(500, 'Route description too long'),
+      radius: z.number()
+        .min(1, 'Radius must be at least 1 mile')
+        .max(500, 'Radius cannot exceed 500 miles')
+    });
+
+    let validatedInput;
+    try {
+      const requestBody = await req.json();
+      validatedInput = leadsSchema.parse(requestBody);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return new Response(
+          JSON.stringify({ error: 'Validation failed', details: error.errors }),
+          { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+      throw error;
+    }
+
+    const { route, radius } = validatedInput;
     const OPENAI_API_KEY = Deno.env.get("OPENAI_API_KEY");
 
     if (!OPENAI_API_KEY) {

@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -24,11 +25,28 @@ serve(async (req) => {
       throw new Error("Unauthorized");
     }
 
-    const { address } = await req.json();
+    // Input validation schema
+    const addressSchema = z.object({
+      address: z.string()
+        .min(1, 'Address cannot be empty')
+        .max(500, 'Address too long')
+    });
 
-    if (!address) {
-      throw new Error("Address is required");
+    let validatedInput;
+    try {
+      const requestBody = await req.json();
+      validatedInput = addressSchema.parse(requestBody);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return new Response(
+          JSON.stringify({ error: 'Validation failed', details: error.errors }),
+          { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+      throw error;
     }
+
+    const { address } = validatedInput;
 
     const googleMapsApiKey = Deno.env.get("GOOGLE_MAPS_API_KEY");
 

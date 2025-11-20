@@ -1,3 +1,5 @@
+import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
+
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
@@ -39,7 +41,35 @@ Deno.serve(async (req) => {
 
     console.log('Processing authenticated email draft request');
 
-    const { companyName, companyWebsite, products } = await req.json();
+    // Input validation schema
+    const emailDraftSchema = z.object({
+      companyName: z.string()
+        .min(1, 'Company name cannot be empty')
+        .max(200, 'Company name too long'),
+      companyWebsite: z.string()
+        .url('Invalid website URL')
+        .max(500, 'Website URL too long')
+        .optional(),
+      products: z.string()
+        .max(2000, 'Products description too long')
+        .optional()
+    });
+
+    let validatedInput;
+    try {
+      const requestBody = await req.json();
+      validatedInput = emailDraftSchema.parse(requestBody);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return new Response(
+          JSON.stringify({ error: 'Validation failed', details: error.errors }),
+          { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+      throw error;
+    }
+
+    const { companyName, companyWebsite, products } = validatedInput;
     const OPENAI_API_KEY = Deno.env.get("OPENAI_API_KEY");
 
     if (!OPENAI_API_KEY) {
