@@ -1,4 +1,4 @@
-import { Home, Users, BarChart3, Settings, TrendingUp, Mail, Navigation, Target, LogOut, ShoppingCart, FileText, Receipt, MapPin, Package } from "lucide-react";
+import { Home, Users, BarChart3, Settings, TrendingUp, Mail, Navigation, Target, LogOut, ShoppingCart, FileText, Receipt, MapPin, Package, Activity } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/useAuth";
@@ -19,6 +19,7 @@ const navigation = [
   { name: "Email Drafting", href: "/email-drafting", icon: Mail },
   { name: "Predictive Analysis", href: "/predictive-analysis", icon: TrendingUp },
   { name: "Route Optimization", href: "/route-optimization", icon: Navigation },
+  { name: "Function Monitoring", href: "/monitoring", icon: Activity },
   { name: "Settings", href: "/settings", icon: Settings },
 ];
 
