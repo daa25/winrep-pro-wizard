@@ -8,6 +8,12 @@ const corsHeaders = {
 };
 
 serve(async (req) => {
+  const startTime = Date.now();
+  const functionName = 'send-sms';
+  let userId: string | null = null;
+  let statusCode = 200;
+  let errorMessage: string | null = null;
+
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -22,7 +28,38 @@ serve(async (req) => {
     const { data: { user }, error: userError } = await supabase.auth.getUser(token);
 
     if (userError || !user) {
+      statusCode = 401;
+      errorMessage = "Unauthorized";
       throw new Error("Unauthorized");
+    }
+
+    userId = user.id;
+
+    // Check rate limit: 30 requests per minute
+    const { data: rateLimitOk } = await supabase.rpc('check_rate_limit', {
+      p_user_id: userId,
+      p_function_name: functionName,
+      p_max_requests: 30,
+      p_window_minutes: 1
+    });
+
+    if (!rateLimitOk) {
+      statusCode = 429;
+      errorMessage = "Rate limit exceeded. Please try again later.";
+      
+      await supabase.from('edge_function_logs').insert({
+        user_id: userId,
+        function_name: functionName,
+        method: req.method,
+        status_code: statusCode,
+        response_time_ms: Date.now() - startTime,
+        error_message: errorMessage
+      });
+
+      return new Response(
+        JSON.stringify({ error: errorMessage }),
+        { status: statusCode, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
     }
 
     // Input validation schema
@@ -123,6 +160,16 @@ serve(async (req) => {
 
     console.log("SMS sent successfully with SID:", twilioData.sid);
 
+    // Log successful request
+    await supabase.from('edge_function_logs').insert({
+      user_id: userId,
+      function_name: functionName,
+      method: req.method,
+      status_code: statusCode,
+      response_time_ms: Date.now() - startTime,
+      metadata: { sid: twilioData.sid, to: `***${phoneNumber.slice(-4)}` }
+    });
+
     return new Response(
       JSON.stringify({ 
         success: true, 
@@ -133,9 +180,26 @@ serve(async (req) => {
     );
   } catch (error: any) {
     console.error("Error sending SMS:", error);
+    statusCode = 400;
+    errorMessage = error.message;
+
+    // Log failed request
+    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+    const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabase = createClient(supabaseUrl, supabaseKey);
+    
+    await supabase.from('edge_function_logs').insert({
+      user_id: userId,
+      function_name: functionName,
+      method: req.method,
+      status_code: statusCode,
+      response_time_ms: Date.now() - startTime,
+      error_message: errorMessage
+    });
+
     return new Response(
       JSON.stringify({ error: error.message }),
-      { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      { status: statusCode, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
 });
