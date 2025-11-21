@@ -173,9 +173,9 @@ export default function RouteAccounts() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label>Name</Label>
+                    <Label>Business Name (optional)</Label>
                     <Input
-                      required
+                      placeholder="e.g., DTE Mt Dora"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     />
@@ -184,6 +184,7 @@ export default function RouteAccounts() {
                     <Label>Address</Label>
                     <Input
                       required
+                      placeholder="e.g., 15607 SW 13th Cir, Ocala, FL"
                       value={formData.address}
                       onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                     />

@@ -4,6 +4,8 @@ import Layout from "@/components/Layout";
 import { supabase } from "@/integrations/supabase/client";
 import WeeklyScheduler from "@/components/routes/WeeklyScheduler";
 import RouteDisplay from "@/components/routes/RouteDisplay";
+import VisitTracker from "@/components/routes/VisitTracker";
+import CSVImporter from "@/components/routes/CSVImporter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -101,7 +103,13 @@ export default function WeeklyRoutes() {
           </p>
         </div>
 
-        <WeeklyScheduler />
+        <div className="grid gap-6 md:grid-cols-2">
+          <WeeklyScheduler />
+          <div className="space-y-6">
+            <CSVImporter />
+            <VisitTracker />
+          </div>
+        </div>
 
         {latestRoute && (
           <Card>

@@ -285,12 +285,13 @@ Deno.serve(async (req) => {
     const body = await req.json();
     const validatedData = requestSchema.parse(body);
 
-    // Fetch route accounts
+    // Fetch route accounts with priority scores
     const { data: accounts, error: accountsError } = await supabaseClient
       .from('route_accounts')
       .select('*')
       .eq('user_id', user.id)
-      .eq('is_active', true);
+      .eq('is_active', true)
+      .order('priority_score', { ascending: false }); // Highest priority first
 
     if (accountsError) {
       statusCode = 500;
