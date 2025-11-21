@@ -657,6 +657,51 @@ export type Database = {
         }
         Relationships: []
       }
+      route_accounts: {
+        Row: {
+          address: string
+          created_at: string
+          frequency: string
+          id: string
+          is_active: boolean
+          name: string
+          notes: string | null
+          priority: string
+          region: string
+          tags: Json | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          address: string
+          created_at?: string
+          frequency?: string
+          id?: string
+          is_active?: boolean
+          name: string
+          notes?: string | null
+          priority?: string
+          region: string
+          tags?: Json | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          address?: string
+          created_at?: string
+          frequency?: string
+          id?: string
+          is_active?: boolean
+          name?: string
+          notes?: string | null
+          priority?: string
+          region?: string
+          tags?: Json | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       route_template_customers: {
         Row: {
           created_at: string
@@ -863,6 +908,39 @@ export type Database = {
           id?: string
           role?: Database["public"]["Enums"]["app_role"]
           user_id?: string
+        }
+        Relationships: []
+      }
+      weekly_routes: {
+        Row: {
+          created_at: string
+          id: string
+          origin_address: string
+          routes: Json
+          updated_at: string
+          user_id: string
+          week_number: number
+          week_start_date: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          origin_address?: string
+          routes: Json
+          updated_at?: string
+          user_id: string
+          week_number: number
+          week_start_date: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          origin_address?: string
+          routes?: Json
+          updated_at?: string
+          user_id?: string
+          week_number?: number
+          week_start_date?: string
         }
         Relationships: []
       }
