@@ -112,13 +112,14 @@ export default function WeeklyScheduler() {
           <ul className="list-disc list-inside space-y-1">
             <li>1 flex day per week</li>
             <li>Juliet Falls every other Thursday</li>
-            <li>Villages only in Weeks 1 & 2</li>
+            <li>Villages EVERY WEEK (largest region, Wed + overflow days)</li>
             <li>BayCare Winter Haven 2x monthly</li>
             <li>Celebration Golf = FIRST stop Orlando</li>
             <li>Mystic Dunes = LAST stop Orlando</li>
             <li>15th & 30th/31st = Half-days (local only)</li>
             <li>Friday = Early stop, no Tampa/DTE</li>
             <li>5-7 stops per day max</li>
+            <li>Villages can span Tue/Wed/Flex days if needed</li>
           </ul>
         </div>
       </CardContent>
