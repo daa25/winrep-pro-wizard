@@ -1,3 +1,21 @@
+/*****************************************************************************************
+ * WINREP PRO – FULL ROUTING & SCHEDULING ENGINE
+ * Implements ALL Sales Rep Rules:
+ *  - 1 flex day per week
+ *  - Juliet Falls every other Thu (or Wed/Fri if needed)
+ *  - Villages EVERY WEEK (largest region - primary Wed, overflow Tue/Flex)
+ *  - BayCare Winter Haven 2x monthly
+ *  - Celebration Golf = FIRST STOP of Orlando Day
+ *  - Mystic Dunes = LAST STOP of Orlando Day
+ *  - 15th & 30th/31st = HALF-DAYS → LOCAL ONLY
+ *  - Friday = early stop; NO Tampa/DTE routes
+ *  - 5–7 stops per day max
+ *  - Must be headed home 12–2pm
+ *  - Low-priority accounts = every 4–5 weeks
+ *
+ *  Built for Lovable.dev — fully modular, uses Supabase + expandable dataset.
+ *****************************************************************************************/
+
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.58.0';
 import { z } from 'https://deno.land/x/zod@v3.22.4/mod.ts';
 
@@ -54,9 +72,9 @@ function buildRouteURL(origin: string, stops: RouteAccount[]): string {
   );
 }
 
-// Rule: Villages ONLY in Weeks 1 & 2
+// Rule: Villages - ALWAYS schedule (largest region)
 function filterVillagesByMonth(weekNumber: number): boolean {
-  return weekNumber === 1 || weekNumber === 2;
+  return true; // Villages runs every week, not just weeks 1-2
 }
 
 // Rule: Juliet Falls every OTHER Thursday (odd weeks)
@@ -98,8 +116,12 @@ async function buildWeeklyRoutes(
 
   // STEP A: Apply frequency logic
   const eligible = accounts.filter(acc => {
-    if (acc.region === 'Villages' && !filterVillagesByMonth(weekNumber)) return false;
+    // Villages is always eligible (biggest region, needs weekly visits)
+    if (acc.region === 'Villages') return true;
+    // Monthly accounts only in week 1
     if (acc.frequency === 'monthly' && weekNumber !== 1) return false;
+    // Biweekly accounts on odd weeks
+    if (acc.frequency === 'biweekly' && weekNumber % 2 === 0) return false;
     return true;
   });
 
@@ -121,13 +143,16 @@ async function buildWeeklyRoutes(
     ...grouped.HainesCity.slice(0, 3)
   ].slice(0, 7);
 
-  // Tuesday → Tampa
-  week.Tuesday = grouped.Tampa.slice(0, 7);
-
-  // Wednesday → Villages (Week 1–2 only)
-  if (filterVillagesByMonth(weekNumber)) {
-    week.Wednesday = grouped.Villages.slice(0, 7);
+  // Tuesday → Tampa (or Villages overflow)
+  if (grouped.Villages.length > 7) {
+    // If Villages has many accounts, split between Wed & Tue
+    week.Tuesday = grouped.Villages.slice(7, 14);
+  } else {
+    week.Tuesday = grouped.Tampa.slice(0, 7);
   }
+
+  // Wednesday → Villages (PRIMARY day - largest region)
+  week.Wednesday = grouped.Villages.slice(0, 7);
 
   // Thursday → Ocala + Juliet Falls
   week.Thursday = grouped.Ocala.slice(0, 5);
@@ -155,8 +180,12 @@ async function buildWeeklyRoutes(
     mystic
   ].filter(Boolean) as RouteAccount[];
 
-  // Flex Day → catch-up (Lakeland)
-  week.FlexDay = grouped.Lakeland.slice(4, 8);
+  // Flex Day → Villages overflow or Tampa catch-up
+  if (grouped.Villages.length > 14) {
+    week.FlexDay = grouped.Villages.slice(14, 21);
+  } else {
+    week.FlexDay = grouped.Tampa.slice(0, 7);
+  }
 
   // STEP D: Half-Day override (15th, 30th, 31st)
   if (isHalfDay(dateObj)) {
