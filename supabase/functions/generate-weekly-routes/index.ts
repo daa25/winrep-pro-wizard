@@ -298,27 +298,43 @@ Deno.serve(async (req) => {
       throw accountsError;
     }
 
-    // Build weekly routes
-    const dateObj = new Date(validatedData.weekStartDate);
-    const origin = validatedData.originAddress || 'Rockridge Rd, Lakeland FL';
+  // Build weekly routes
+  const dateObj = new Date(validatedData.weekStartDate);
+  const origin = validatedData.originAddress || 'Rockridge Rd, Lakeland FL';
 
-    const routes = await buildWeeklyRoutes(
-      accounts as RouteAccount[],
-      validatedData.weekNumber,
-      dateObj,
-      origin
-    );
+  // Generate Week A (current week)
+  const weekARoutes = await buildWeeklyRoutes(
+    accounts as RouteAccount[],
+    validatedData.weekNumber,
+    dateObj,
+    origin
+  );
 
-    // Save to database
-    const { error: saveError } = await supabaseClient
-      .from('weekly_routes')
-      .upsert({
-        user_id: user.id,
-        week_number: validatedData.weekNumber,
-        week_start_date: validatedData.weekStartDate,
-        origin_address: origin,
-        routes: routes,
-      });
+  // Generate Week B (following week)
+  const nextWeekDate = new Date(dateObj);
+  nextWeekDate.setDate(dateObj.getDate() + 7);
+  const weekBRoutes = await buildWeeklyRoutes(
+    accounts as RouteAccount[],
+    validatedData.weekNumber + 1,
+    nextWeekDate,
+    origin
+  );
+
+  const twoWeekSchedule = {
+    weekA: weekARoutes,
+    weekB: weekBRoutes,
+  };
+
+  // Save to database
+  const { error: saveError } = await supabaseClient
+    .from('weekly_routes')
+    .upsert({
+      user_id: user.id,
+      week_number: validatedData.weekNumber,
+      week_start_date: validatedData.weekStartDate,
+      origin_address: origin,
+      routes: twoWeekSchedule,
+    });
 
     if (saveError) {
       statusCode = 500;
@@ -338,7 +354,7 @@ Deno.serve(async (req) => {
     });
 
     return new Response(
-      JSON.stringify({ success: true, routes }),
+      JSON.stringify({ success: true, routes: twoWeekSchedule }),
       {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         status: statusCode,
