@@ -50,6 +50,39 @@ export type Database = {
         }
         Relationships: []
       }
+      alert_configurations: {
+        Row: {
+          created_at: string
+          error_threshold_percent: number
+          function_name: string
+          id: string
+          is_enabled: boolean
+          time_window_minutes: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          error_threshold_percent?: number
+          function_name: string
+          id?: string
+          is_enabled?: boolean
+          time_window_minutes?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          error_threshold_percent?: number
+          function_name?: string
+          id?: string
+          is_enabled?: boolean
+          time_window_minutes?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       customers: {
         Row: {
           address: string | null
@@ -522,6 +555,36 @@ export type Database = {
           phone?: string | null
           territory?: string | null
           updated_at?: string | null
+        }
+        Relationships: []
+      }
+      rate_limit_configurations: {
+        Row: {
+          created_at: string
+          function_name: string
+          id: string
+          max_requests: number
+          updated_at: string
+          user_id: string
+          window_minutes: number
+        }
+        Insert: {
+          created_at?: string
+          function_name: string
+          id?: string
+          max_requests?: number
+          updated_at?: string
+          user_id: string
+          window_minutes?: number
+        }
+        Update: {
+          created_at?: string
+          function_name?: string
+          id?: string
+          max_requests?: number
+          updated_at?: string
+          user_id?: string
+          window_minutes?: number
         }
         Relationships: []
       }

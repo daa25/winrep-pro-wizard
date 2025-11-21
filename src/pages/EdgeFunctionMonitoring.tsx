@@ -6,6 +6,9 @@ import { useQuery } from "@tanstack/react-query";
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { Activity, AlertCircle, Clock, TrendingUp } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import AlertSettings from "@/components/monitoring/AlertSettings";
+import RateLimitSettings from "@/components/monitoring/RateLimitSettings";
+import LogExport from "@/components/monitoring/LogExport";
 
 interface EdgeFunctionLog {
   id: string;
@@ -155,6 +158,7 @@ export default function EdgeFunctionMonitoring() {
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="performance">Performance</TabsTrigger>
             <TabsTrigger value="errors">Errors</TabsTrigger>
+            <TabsTrigger value="settings">Settings</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="space-y-4">
@@ -282,6 +286,14 @@ export default function EdgeFunctionMonitoring() {
                   </div>
                 </CardContent>
               </Card>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="settings" className="space-y-4">
+            <div className="grid gap-4">
+              <LogExport logs={logs} />
+              <AlertSettings />
+              <RateLimitSettings />
             </div>
           </TabsContent>
         </Tabs>
