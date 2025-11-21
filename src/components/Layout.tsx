@@ -19,6 +19,8 @@ const navigation = [
   { name: "Email Drafting", href: "/email-drafting", icon: Mail },
   { name: "Predictive Analysis", href: "/predictive-analysis", icon: TrendingUp },
   { name: "Route Optimization", href: "/route-optimization", icon: Navigation },
+  { name: "Route Accounts", href: "/route-accounts", icon: MapPin },
+  { name: "Weekly Routes", href: "/weekly-routes", icon: Navigation },
   { name: "Function Monitoring", href: "/monitoring", icon: Activity },
   { name: "Settings", href: "/settings", icon: Settings },
 ];

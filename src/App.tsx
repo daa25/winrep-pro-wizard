@@ -16,10 +16,16 @@ import LeadGeneration from "./pages/LeadGeneration";
 import EmailDrafting from "./pages/EmailDrafting";
 import PredictiveAnalysis from "./pages/PredictiveAnalysis";
 import RouteOptimization from "./pages/RouteOptimization";
+import RouteTemplates from "./pages/RouteTemplates";
+import MobileOrderEntry from "./pages/MobileOrderEntry";
+import FollowUpTasks from "./pages/FollowUpTasks";
+import Dashboard from "./pages/Dashboard";
 import Customers from "./pages/Customers";
 import Products from "./pages/Products";
 import Settings from "./pages/Settings";
 import EdgeFunctionMonitoring from "./pages/EdgeFunctionMonitoring";
+import WeeklyRoutes from "./pages/WeeklyRoutes";
+import RouteAccounts from "./pages/RouteAccounts";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -43,10 +49,15 @@ const App = () => (
           <Route path="/email-drafting" element={<ProtectedRoute><EmailDrafting /></ProtectedRoute>} />
           <Route path="/predictive-analysis" element={<ProtectedRoute><PredictiveAnalysis /></ProtectedRoute>} />
           <Route path="/route-optimization" element={<ProtectedRoute><RouteOptimization /></ProtectedRoute>} />
+          <Route path="/route-templates" element={<ProtectedRoute><RouteTemplates /></ProtectedRoute>} />
+          <Route path="/mobile-order-entry" element={<ProtectedRoute><MobileOrderEntry /></ProtectedRoute>} />
+          <Route path="/follow-up-tasks" element={<ProtectedRoute><FollowUpTasks /></ProtectedRoute>} />
           <Route path="/customers" element={<ProtectedRoute><Customers /></ProtectedRoute>} />
           <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
           <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
           <Route path="/monitoring" element={<ProtectedRoute><EdgeFunctionMonitoring /></ProtectedRoute>} />
+          <Route path="/weekly-routes" element={<ProtectedRoute><WeeklyRoutes /></ProtectedRoute>} />
+          <Route path="/route-accounts" element={<ProtectedRoute><RouteAccounts /></ProtectedRoute>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
