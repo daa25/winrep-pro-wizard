@@ -660,6 +660,7 @@ export type Database = {
       route_accounts: {
         Row: {
           address: string
+          business_name: string | null
           created_at: string
           frequency: string
           id: string
@@ -667,6 +668,7 @@ export type Database = {
           name: string
           notes: string | null
           priority: string
+          priority_score: number | null
           region: string
           tags: Json | null
           updated_at: string
@@ -674,6 +676,7 @@ export type Database = {
         }
         Insert: {
           address: string
+          business_name?: string | null
           created_at?: string
           frequency?: string
           id?: string
@@ -681,6 +684,7 @@ export type Database = {
           name: string
           notes?: string | null
           priority?: string
+          priority_score?: number | null
           region: string
           tags?: Json | null
           updated_at?: string
@@ -688,6 +692,7 @@ export type Database = {
         }
         Update: {
           address?: string
+          business_name?: string | null
           created_at?: string
           frequency?: string
           id?: string
@@ -695,6 +700,7 @@ export type Database = {
           name?: string
           notes?: string | null
           priority?: string
+          priority_score?: number | null
           region?: string
           tags?: Json | null
           updated_at?: string
@@ -785,6 +791,44 @@ export type Database = {
           week_type?: string
         }
         Relationships: []
+      }
+      route_visit_history: {
+        Row: {
+          account_id: string
+          created_at: string
+          id: string
+          notes: string | null
+          order_amount: number | null
+          user_id: string
+          visit_date: string
+        }
+        Insert: {
+          account_id: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          order_amount?: number | null
+          user_id: string
+          visit_date: string
+        }
+        Update: {
+          account_id?: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          order_amount?: number | null
+          user_id?: string
+          visit_date?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "route_visit_history_account_id_fkey"
+            columns: ["account_id"]
+            isOneToOne: false
+            referencedRelation: "route_accounts"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       sales_reports: {
         Row: {
@@ -965,6 +1009,10 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      update_account_priority_score: {
+        Args: { p_account_id: string }
+        Returns: number
       }
     }
     Enums: {
