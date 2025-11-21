@@ -26,6 +26,7 @@ import Settings from "./pages/Settings";
 import EdgeFunctionMonitoring from "./pages/EdgeFunctionMonitoring";
 import WeeklyRoutes from "./pages/WeeklyRoutes";
 import RouteAccounts from "./pages/RouteAccounts";
+import MobileDailyRoute from "./pages/MobileDailyRoute";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -58,6 +59,7 @@ const App = () => (
           <Route path="/monitoring" element={<ProtectedRoute><EdgeFunctionMonitoring /></ProtectedRoute>} />
           <Route path="/weekly-routes" element={<ProtectedRoute><WeeklyRoutes /></ProtectedRoute>} />
           <Route path="/route-accounts" element={<ProtectedRoute><RouteAccounts /></ProtectedRoute>} />
+          <Route path="/mobile-route" element={<ProtectedRoute><MobileDailyRoute /></ProtectedRoute>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

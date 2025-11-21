@@ -1,5 +1,7 @@
 import StatCard from "@/components/StatCard";
 import RepCard from "@/components/RepCard";
+import TodaysRouteWidget from "@/components/dashboard/TodaysRouteWidget";
+import WeeklyPerformanceReport from "@/components/dashboard/WeeklyPerformanceReport";
 import { Users, DollarSign, TrendingUp, Target } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
@@ -89,6 +91,12 @@ export default function Dashboard() {
         {stats.map((stat) => (
           <StatCard key={stat.title} {...stat} />
         ))}
+      </div>
+
+      {/* Today's Route & Performance */}
+      <div className="grid gap-6 md:grid-cols-2">
+        <TodaysRouteWidget />
+        <WeeklyPerformanceReport />
       </div>
 
       {/* Top Performers Section */}
