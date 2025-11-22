@@ -1,22 +1,26 @@
 import { useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Navigation, MapPin, Phone, CheckCircle, ArrowLeft, Wifi, WifiOff } from "lucide-react";
+import { Navigation, MapPin, Phone, CheckCircle, ArrowLeft, Wifi, WifiOff, Locate } from "lucide-react";
 import { format, getISOWeek } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import { useGPSTracking } from "@/hooks/useGPSTracking";
 
 const WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
 export default function MobileDailyRoute() {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const queryClient = useQueryClient();
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [cachedRoute, setCachedRoute] = useState<any>(null);
-  
+  const [routeStartTime] = useState(new Date());
+  const { position, tracking, startTracking, stopTracking, logLocation } = useGPSTracking();
+
   const today = new Date();
   const dayOfWeek = WEEKDAYS[today.getDay() - 1];
   const weekNumber = getISOWeek(today);
@@ -103,6 +107,59 @@ export default function MobileDailyRoute() {
     }
   };
 
+  const logVisitMutation = useMutation({
+    mutationFn: async (stop: any) => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) throw new Error('Not authenticated');
+
+      // Find matching route account
+      const { data: account } = await supabase
+        .from('route_accounts')
+        .select('id')
+        .eq('user_id', user.id)
+        .ilike('name', `%${stop.name}%`)
+        .single();
+
+      const { error } = await supabase.from('route_visit_history').insert({
+        user_id: user.id,
+        account_id: account?.id || null,
+        visit_date: format(today, 'yyyy-MM-dd'),
+        notes: `Visited from mobile route on ${format(today, 'PPP')}`,
+      });
+
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['visit-history'] });
+      toast({ title: "Visit logged", description: "Successfully recorded visit" });
+    },
+    onError: () => {
+      toast({ title: "Error", description: "Failed to log visit", variant: "destructive" });
+    },
+  });
+
+  // Log route performance when component unmounts
+  useEffect(() => {
+    return () => {
+      if (stops.length > 0) {
+        (async () => {
+          const { data: { user } } = await supabase.auth.getUser();
+          if (!user) return;
+
+          await supabase.from('route_performance').insert({
+            user_id: user.id,
+            route_name: `${dayOfWeek} - Week ${isWeekA ? 'A' : 'B'}`,
+            day_of_week: today.getDay() - 1,
+            start_time: routeStartTime.toISOString(),
+            end_time: new Date().toISOString(),
+            stops_completed: stops.length,
+            total_duration_minutes: Math.round((Date.now() - routeStartTime.getTime()) / 60000),
+          });
+        })();
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background pb-20">
       {/* Header */}
@@ -117,15 +174,36 @@ export default function MobileDailyRoute() {
               {format(today, 'EEEE, MMM d')} • Week {isWeekA ? 'A' : 'B'}
             </p>
           </div>
-          <div className="w-10 flex justify-end">
-            {isOnline ? (
-              <Wifi className="h-5 w-5 text-success" />
-            ) : (
-              <WifiOff className="h-5 w-5 text-destructive" />
-            )}
+          <div className="flex gap-2">
+            <Button
+              variant={tracking ? "destructive" : "outline"}
+              size="sm"
+              onClick={tracking ? stopTracking : startTracking}
+            >
+              <Locate className="h-4 w-4 mr-1" />
+              {tracking ? "Stop GPS" : "GPS"}
+            </Button>
+            <div className="w-8 flex justify-end">
+              {isOnline ? (
+                <Wifi className="h-5 w-5 text-success" />
+              ) : (
+                <WifiOff className="h-5 w-5 text-destructive" />
+              )}
+            </div>
           </div>
         </div>
       </div>
+
+      {/* GPS Position */}
+      {position && (
+        <div className="px-4 py-2 bg-muted/30 border-b">
+          <div className="flex items-center gap-2 text-xs">
+            <Locate className="h-3 w-3 text-green-600" />
+            <span className="font-mono">{position.latitude.toFixed(6)}, {position.longitude.toFixed(6)}</span>
+            <Badge variant="secondary" className="text-xs">±{Math.round(position.accuracy)}m</Badge>
+          </div>
+        </div>
+      )}
 
       {/* Status Bar */}
       <div className="p-4 bg-muted/50">
@@ -190,26 +268,43 @@ export default function MobileDailyRoute() {
                   <Button
                     size="sm"
                     variant="outline"
-                    className="flex-1 gap-2"
+                    className="gap-2"
                     onClick={() => handleCallCustomer(stop.phone)}
                   >
                     <Phone className="h-4 w-4" />
                     Call
                   </Button>
                 )}
+              </div>
+
+              <div className="flex gap-2">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => logLocation(null, 'arrival')}
+                  disabled={!position}
+                  className="flex-1"
+                >
+                  Arrive
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => logLocation(null, 'departure')}
+                  disabled={!position}
+                  className="flex-1"
+                >
+                  Depart
+                </Button>
                 <Button
                   size="sm"
                   variant="default"
-                  className="gap-2"
-                  onClick={() => {
-                    toast({
-                      title: "Visit logged",
-                      description: `Marked ${stop.name} as visited`,
-                    });
-                  }}
+                  className="flex-1 gap-2"
+                  onClick={() => logVisitMutation.mutate(stop)}
+                  disabled={logVisitMutation.isPending}
                 >
                   <CheckCircle className="h-4 w-4" />
-                  Done
+                  Log Visit
                 </Button>
               </div>
 
