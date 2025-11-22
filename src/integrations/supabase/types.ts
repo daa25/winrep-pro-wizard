@@ -83,6 +83,85 @@ export type Database = {
         }
         Relationships: []
       }
+      customer_appointments: {
+        Row: {
+          created_at: string
+          customer_id: string
+          id: string
+          notes: string | null
+          rep_user_id: string
+          requested_date: string
+          requested_time_slot: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          customer_id: string
+          id?: string
+          notes?: string | null
+          rep_user_id: string
+          requested_date: string
+          requested_time_slot: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          customer_id?: string
+          id?: string
+          notes?: string | null
+          rep_user_id?: string
+          requested_date?: string
+          requested_time_slot?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "customer_appointments_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      customer_users: {
+        Row: {
+          created_at: string
+          customer_id: string | null
+          email: string
+          id: string
+          last_login: string | null
+          phone: string | null
+        }
+        Insert: {
+          created_at?: string
+          customer_id?: string | null
+          email: string
+          id?: string
+          last_login?: string | null
+          phone?: string | null
+        }
+        Update: {
+          created_at?: string
+          customer_id?: string | null
+          email?: string
+          id?: string
+          last_login?: string | null
+          phone?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "customer_users_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       customers: {
         Row: {
           address: string | null
@@ -339,6 +418,50 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      location_logs: {
+        Row: {
+          account_id: string | null
+          accuracy: number | null
+          created_at: string
+          event_type: string
+          id: string
+          latitude: number
+          longitude: number
+          timestamp: string
+          user_id: string
+        }
+        Insert: {
+          account_id?: string | null
+          accuracy?: number | null
+          created_at?: string
+          event_type: string
+          id?: string
+          latitude: number
+          longitude: number
+          timestamp?: string
+          user_id: string
+        }
+        Update: {
+          account_id?: string | null
+          accuracy?: number | null
+          created_at?: string
+          event_type?: string
+          id?: string
+          latitude?: number
+          longitude?: number
+          timestamp?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "location_logs_account_id_fkey"
+            columns: ["account_id"]
+            isOneToOne: false
+            referencedRelation: "route_accounts"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       optimized_routes: {
         Row: {
@@ -704,6 +827,48 @@ export type Database = {
           region?: string
           tags?: Json | null
           updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      route_performance: {
+        Row: {
+          created_at: string
+          day_of_week: number
+          end_time: string | null
+          id: string
+          route_name: string
+          start_time: string
+          stops_completed: number
+          total_distance_miles: number | null
+          total_duration_minutes: number | null
+          traffic_score: number | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          day_of_week: number
+          end_time?: string | null
+          id?: string
+          route_name: string
+          start_time: string
+          stops_completed?: number
+          total_distance_miles?: number | null
+          total_duration_minutes?: number | null
+          traffic_score?: number | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          day_of_week?: number
+          end_time?: string | null
+          id?: string
+          route_name?: string
+          start_time?: string
+          stops_completed?: number
+          total_distance_miles?: number | null
+          total_duration_minutes?: number | null
+          traffic_score?: number | null
           user_id?: string
         }
         Relationships: []
