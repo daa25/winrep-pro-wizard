@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,9 +6,10 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/components/ui/use-toast";
-import { Navigation, Clock, MapPin, Loader2, Plus, X, GripVertical, Route, ExternalLink } from "lucide-react";
+import { Navigation, Clock, MapPin, Loader2, Plus, X, GripVertical, Route, ExternalLink, Map } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { SearchableCombobox, ComboboxOption } from "@/components/ui/searchable-combobox";
+import RouteMap from "@/components/routes/RouteMap";
 import {
   DndContext,
   closestCenter,
@@ -32,6 +33,8 @@ interface Stop {
   address: string;
   name?: string;
   customerId?: string;
+  lat?: number;
+  lng?: number;
 }
 
 interface OptimizedRoute {
@@ -55,9 +58,10 @@ interface SortableStopProps {
   onLocationSelect: (stopId: string, value: string) => void;
   onUpdateStop: (id: string, updates: Partial<Stop>) => void;
   onRemoveStop: (id: string) => void;
+  isGeocoding: boolean;
 }
 
-function SortableStop({ stop, index, stopsLength, allLocationOptions, onLocationSelect, onUpdateStop, onRemoveStop }: SortableStopProps) {
+function SortableStop({ stop, index, stopsLength, allLocationOptions, onLocationSelect, onUpdateStop, onRemoveStop, isGeocoding }: SortableStopProps) {
   const {
     attributes,
     listeners,
@@ -73,11 +77,17 @@ function SortableStop({ stop, index, stopsLength, allLocationOptions, onLocation
     opacity: isDragging ? 0.5 : 1,
   };
 
+  const getStopColor = () => {
+    if (index === 0) return "bg-green-500";
+    if (index === stopsLength - 1 && stopsLength > 1) return "bg-red-500";
+    return "bg-blue-500";
+  };
+
   return (
     <div
       ref={setNodeRef}
       style={style}
-      className="flex items-start gap-3 p-3 border rounded-lg bg-muted/30"
+      className="flex items-start gap-3 p-3 border rounded-lg bg-card hover:bg-accent/50 transition-colors"
     >
       <div className="flex items-center gap-2 pt-2">
         <button
@@ -87,22 +97,22 @@ function SortableStop({ stop, index, stopsLength, allLocationOptions, onLocation
         >
           <GripVertical className="h-4 w-4 text-muted-foreground hover:text-foreground" />
         </button>
-        <Badge variant="outline" className="w-8 h-8 rounded-full flex items-center justify-center p-0">
+        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm ${getStopColor()}`}>
           {index + 1}
-        </Badge>
+        </div>
       </div>
       
       <div className="flex-1 space-y-2">
         <div className="flex items-center gap-2">
           <Label className="text-sm font-medium">
-            {index === 0 ? "Start Location" : index === stopsLength - 1 && stopsLength > 1 ? "Final Destination" : `Stop ${index}`}
+            {index === 0 ? "Start" : index === stopsLength - 1 && stopsLength > 1 ? "End" : `Stop ${index}`}
           </Label>
           {stop.name && stop.name !== stop.address && (
             <Badge variant="secondary" className="text-xs">{stop.name}</Badge>
           )}
         </div>
         
-        <div className="grid gap-2 md:grid-cols-2">
+        <div className="grid gap-2">
           <SearchableCombobox
             options={allLocationOptions}
             placeholder="Select customer or account..."
@@ -113,9 +123,32 @@ function SortableStop({ stop, index, stopsLength, allLocationOptions, onLocation
           <Input
             placeholder="Or enter address manually..."
             value={stop.address}
-            onChange={(e) => onUpdateStop(stop.id, { address: e.target.value, name: undefined })}
+            onChange={(e) => onUpdateStop(stop.id, { address: e.target.value, name: undefined, lat: undefined, lng: undefined })}
+            className="text-sm"
           />
         </div>
+
+        {/* Coordinates display */}
+        {stop.lat && stop.lng ? (
+          <div className="flex items-center gap-2 text-xs text-muted-foreground">
+            <MapPin className="h-3 w-3" />
+            <span>{stop.lat.toFixed(6)}, {stop.lng.toFixed(6)}</span>
+          </div>
+        ) : stop.address && (
+          <div className="flex items-center gap-2 text-xs text-muted-foreground">
+            {isGeocoding ? (
+              <>
+                <Loader2 className="h-3 w-3 animate-spin" />
+                <span>Getting coordinates...</span>
+              </>
+            ) : (
+              <>
+                <MapPin className="h-3 w-3" />
+                <span>Enter address to see on map</span>
+              </>
+            )}
+          </div>
+        )}
       </div>
 
       <Button
@@ -137,6 +170,7 @@ export default function RouteOptimization() {
   ]);
   const [routeInfo, setRouteInfo] = useState<OptimizedRoute | null>(null);
   const [loading, setLoading] = useState(false);
+  const [geocodingStops, setGeocodingStops] = useState<Set<string>>(new Set());
   const { toast } = useToast();
 
   const sensors = useSensors(
@@ -145,6 +179,40 @@ export default function RouteOptimization() {
       coordinateGetter: sortableKeyboardCoordinates,
     })
   );
+
+  // Geocode addresses when they change
+  useEffect(() => {
+    const geocodeStops = async () => {
+      for (const stop of stops) {
+        if (stop.address && stop.address.trim().length > 5 && !stop.lat && !geocodingStops.has(stop.id)) {
+          setGeocodingStops(prev => new Set(prev).add(stop.id));
+          
+          try {
+            const { data, error } = await supabase.functions.invoke("geocode-address", {
+              body: { address: stop.address },
+            });
+            
+            if (!error && data?.lat && data?.lng) {
+              setStops(prev => prev.map(s => 
+                s.id === stop.id ? { ...s, lat: data.lat, lng: data.lng } : s
+              ));
+            }
+          } catch (err) {
+            console.error("Geocoding error:", err);
+          } finally {
+            setGeocodingStops(prev => {
+              const next = new Set(prev);
+              next.delete(stop.id);
+              return next;
+            });
+          }
+        }
+      }
+    };
+
+    const debounce = setTimeout(geocodeStops, 1000);
+    return () => clearTimeout(debounce);
+  }, [stops]);
 
   // Fetch customers for dropdown
   const { data: customers = [] } = useQuery({
@@ -155,7 +223,7 @@ export default function RouteOptimization() {
       
       const { data, error } = await supabase
         .from("customers")
-        .select("id, name, street, city, state, zip_code")
+        .select("id, name, street, city, state, zip_code, latitude, longitude")
         .eq("user_id", user.id)
         .eq("status", "active")
         .order("name");
@@ -206,10 +274,10 @@ export default function RouteOptimization() {
   };
 
   const removeStop = (id: string) => {
-    if (stops.length <= 2) {
+    if (stops.length <= 1) {
       toast({
         title: "Minimum stops required",
-        description: "You need at least 2 stops for a route",
+        description: "You need at least 1 stop",
         variant: "destructive",
       });
       return;
@@ -229,13 +297,24 @@ export default function RouteOptimization() {
         const address = [customer.street, customer.city, customer.state, customer.zip_code]
           .filter(Boolean)
           .join(", ");
-        updateStop(stopId, { address, name: customer.name, customerId });
+        updateStop(stopId, { 
+          address, 
+          name: customer.name, 
+          customerId,
+          lat: customer.latitude || undefined,
+          lng: customer.longitude || undefined,
+        });
       }
     } else if (selectedValue.startsWith("account-")) {
       const accountId = selectedValue.replace("account-", "");
       const account = routeAccounts.find((r) => r.id === accountId);
       if (account) {
-        updateStop(stopId, { address: account.address, name: account.name });
+        updateStop(stopId, { 
+          address: account.address, 
+          name: account.name,
+          lat: undefined,
+          lng: undefined,
+        });
       }
     }
   };
@@ -314,58 +393,72 @@ export default function RouteOptimization() {
     window.open(url, "_blank");
   };
 
+  const handleMapStopClick = (stopId: string) => {
+    // Could scroll to the stop in the list
+    const element = document.getElementById(`stop-${stopId}`);
+    element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold mb-2">Route Optimization</h1>
-        <p className="text-muted-foreground">
-          Add multiple stops and optimize your route based on traffic and location. Drag to reorder stops.
+    <div className="h-[calc(100vh-8rem)]">
+      <div className="mb-4">
+        <h1 className="text-2xl font-bold flex items-center gap-2">
+          <Map className="h-6 w-6" />
+          Route Planner
+        </h1>
+        <p className="text-sm text-muted-foreground">
+          Add stops to plan your route. Drag to reorder.
         </p>
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Route className="h-5 w-5" />
-            Route Stops
-          </CardTitle>
-          <CardDescription>
-            Add stops manually or select from your customers and accounts. Drag stops to reorder.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <DndContext
-            sensors={sensors}
-            collisionDetection={closestCenter}
-            onDragEnd={handleDragEnd}
-          >
-            <SortableContext items={stops.map(s => s.id)} strategy={verticalListSortingStrategy}>
-              {stops.map((stop, index) => (
-                <SortableStop
-                  key={stop.id}
-                  stop={stop}
-                  index={index}
-                  stopsLength={stops.length}
-                  allLocationOptions={allLocationOptions}
-                  onLocationSelect={handleLocationSelect}
-                  onUpdateStop={updateStop}
-                  onRemoveStop={removeStop}
-                />
-              ))}
-            </SortableContext>
-          </DndContext>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 h-[calc(100%-4rem)]">
+        {/* Left Panel - Stops List */}
+        <div className="flex flex-col gap-4 overflow-hidden">
+          <Card className="flex-1 overflow-hidden flex flex-col">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-lg flex items-center gap-2">
+                <Route className="h-5 w-5" />
+                Stops ({stops.length})
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1 overflow-y-auto space-y-3 pb-4">
+              <DndContext
+                sensors={sensors}
+                collisionDetection={closestCenter}
+                onDragEnd={handleDragEnd}
+              >
+                <SortableContext items={stops.map(s => s.id)} strategy={verticalListSortingStrategy}>
+                  {stops.map((stop, index) => (
+                    <div key={stop.id} id={`stop-${stop.id}`}>
+                      <SortableStop
+                        stop={stop}
+                        index={index}
+                        stopsLength={stops.length}
+                        allLocationOptions={allLocationOptions}
+                        onLocationSelect={handleLocationSelect}
+                        onUpdateStop={updateStop}
+                        onRemoveStop={removeStop}
+                        isGeocoding={geocodingStops.has(stop.id)}
+                      />
+                    </div>
+                  ))}
+                </SortableContext>
+              </DndContext>
 
-          <Button variant="outline" onClick={addStop} className="w-full">
-            <Plus className="mr-2 h-4 w-4" />
-            Add Stop
-          </Button>
+              <Button variant="outline" onClick={addStop} className="w-full">
+                <Plus className="mr-2 h-4 w-4" />
+                Add Stop
+              </Button>
+            </CardContent>
+          </Card>
 
-          <div className="flex gap-2 pt-4">
+          {/* Action Buttons */}
+          <div className="flex gap-2">
             <Button onClick={optimizeRoute} disabled={loading} className="flex-1">
               {loading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Optimizing Route...
+                  Optimizing...
                 </>
               ) : (
                 <>
@@ -376,73 +469,47 @@ export default function RouteOptimization() {
             </Button>
             <Button variant="outline" onClick={openInGoogleMaps} disabled={stops.filter(s => s.address.trim()).length < 2}>
               <ExternalLink className="mr-2 h-4 w-4" />
-              Open in Maps
+              Google Maps
             </Button>
           </div>
-        </CardContent>
-      </Card>
 
-      {routeInfo && (
-        <>
-          <div className="grid gap-4 md:grid-cols-2">
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Total Distance</CardTitle>
-                <MapPin className="h-4 w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">{routeInfo.totalDistance.toFixed(1)} mi</div>
-                <p className="text-xs text-muted-foreground">Optimized route</p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Estimated Time</CardTitle>
-                <Clock className="h-4 w-4 text-muted-foreground" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">
-                  {Math.floor(routeInfo.totalTime / 60)}h {Math.round(routeInfo.totalTime % 60)}m
-                </div>
-                <p className="text-xs text-muted-foreground">Including traffic</p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Route className="h-5 w-5" />
-                Optimized Route Order
-              </CardTitle>
-              <CardDescription>
-                Your stops have been reordered for the most efficient route
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-3">
-                {routeInfo.legs.map((leg, index) => (
-                  <div key={index} className="flex items-center gap-3 p-3 border rounded-lg">
-                    <Badge className="w-8 h-8 rounded-full flex items-center justify-center p-0">
-                      {index + 1}
-                    </Badge>
-                    <div className="flex-1">
-                      <div className="font-medium">{leg.from}</div>
-                      <div className="text-sm text-muted-foreground flex items-center gap-2">
-                        <span>→ {leg.to}</span>
-                        <Badge variant="outline" className="text-xs">
-                          {leg.distance.toFixed(1)} mi • {Math.round(leg.duration)} min
-                        </Badge>
-                      </div>
-                    </div>
+          {/* Route Info */}
+          {routeInfo && (
+            <div className="grid grid-cols-2 gap-2">
+              <Card className="p-3">
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-muted-foreground" />
+                  <div>
+                    <div className="text-lg font-bold">{routeInfo.totalDistance.toFixed(1)} mi</div>
+                    <div className="text-xs text-muted-foreground">Total Distance</div>
                   </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </>
-      )}
+                </div>
+              </Card>
+              <Card className="p-3">
+                <div className="flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-muted-foreground" />
+                  <div>
+                    <div className="text-lg font-bold">
+                      {Math.floor(routeInfo.totalTime / 60)}h {Math.round(routeInfo.totalTime % 60)}m
+                    </div>
+                    <div className="text-xs text-muted-foreground">Est. Time</div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          )}
+        </div>
+
+        {/* Right Panel - Map */}
+        <Card className="overflow-hidden">
+          <CardContent className="p-0 h-full">
+            <RouteMap 
+              stops={stops} 
+              onStopClick={handleMapStopClick}
+            />
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }
