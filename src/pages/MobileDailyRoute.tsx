@@ -9,6 +9,7 @@ import { format, getISOWeek } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { useGPSTracking } from "@/hooks/useGPSTracking";
+import winzerLogo from "@/assets/winzer-logo.png";
 
 const WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
@@ -163,27 +164,28 @@ export default function MobileDailyRoute() {
   return (
     <div className="min-h-screen bg-background pb-20">
       {/* Header */}
-      <div className="sticky top-0 z-10 bg-background border-b">
+      <div className="sticky top-0 z-10 bg-sidebar shadow-elevated">
         <div className="flex items-center justify-between p-4">
-          <Button variant="ghost" size="icon" onClick={() => navigate(-1)}>
+          <Button variant="ghost" size="icon" onClick={() => navigate(-1)} className="text-sidebar-foreground hover:bg-sidebar-accent">
             <ArrowLeft className="h-5 w-5" />
           </Button>
           <div className="text-center flex-1">
-            <h1 className="text-lg font-bold">Today's Route</h1>
-            <p className="text-xs text-muted-foreground">
+            <img src={winzerLogo} alt="Winzer" className="h-8 mx-auto mb-1" />
+            <p className="text-xs text-sidebar-foreground/80">
               {format(today, 'EEEE, MMM d')} • Week {isWeekA ? 'A' : 'B'}
             </p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center">
             <Button
               variant={tracking ? "destructive" : "outline"}
               size="sm"
               onClick={tracking ? stopTracking : startTracking}
+              className={tracking ? "" : "border-sidebar-border text-sidebar-foreground hover:bg-sidebar-accent"}
             >
               <Locate className="h-4 w-4 mr-1" />
-              {tracking ? "Stop GPS" : "GPS"}
+              {tracking ? "Stop" : "GPS"}
             </Button>
-            <div className="w-8 flex justify-end">
+            <div className="w-6 flex justify-end">
               {isOnline ? (
                 <Wifi className="h-5 w-5 text-success" />
               ) : (
@@ -196,9 +198,9 @@ export default function MobileDailyRoute() {
 
       {/* GPS Position */}
       {position && (
-        <div className="px-4 py-2 bg-muted/30 border-b">
+        <div className="px-4 py-2 bg-success/10 border-b border-success/20">
           <div className="flex items-center gap-2 text-xs">
-            <Locate className="h-3 w-3 text-green-600" />
+            <Locate className="h-3 w-3 text-success animate-pulse" />
             <span className="font-mono">{position.latitude.toFixed(6)}, {position.longitude.toFixed(6)}</span>
             <Badge variant="secondary" className="text-xs">±{Math.round(position.accuracy)}m</Badge>
           </div>
@@ -206,14 +208,14 @@ export default function MobileDailyRoute() {
       )}
 
       {/* Status Bar */}
-      <div className="p-4 bg-muted/50">
+      <div className="p-4 bg-gradient-hero">
         <div className="flex items-center justify-between">
-          <Badge variant="outline" className="gap-1">
+          <Badge className="gap-1 bg-primary/10 text-primary border-primary/20">
             <MapPin className="h-3 w-3" />
-            {stops.length} stops
+            {stops.length} stops today
           </Badge>
           {!isOnline && (
-            <Badge variant="secondary" className="gap-1">
+            <Badge variant="secondary" className="gap-1 bg-accent/10 text-accent">
               <WifiOff className="h-3 w-3" />
               Offline Mode
             </Badge>
@@ -225,7 +227,7 @@ export default function MobileDailyRoute() {
       <div className="p-4">
         <Button 
           onClick={handleOpenMaps} 
-          className="w-full gap-2 h-12"
+          className="w-full gap-2 h-12 bg-gradient-accent hover:opacity-90 shadow-glow-accent glow-button"
           disabled={!mapsUrl}
         >
           <Navigation className="h-5 w-5" />
@@ -236,14 +238,14 @@ export default function MobileDailyRoute() {
       {/* Stops List */}
       <div className="space-y-3 px-4">
         {stops.map((stop: any, idx: number) => (
-          <Card key={idx} className="overflow-hidden">
+          <Card key={idx} className="overflow-hidden hover-lift animate-slide-up" style={{ animationDelay: `${idx * 50}ms` }}>
             <CardContent className="p-4 space-y-3">
               <div className="flex items-start gap-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-accent text-accent-foreground font-bold shadow-glow-accent">
                   {idx + 1}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold">{stop.name}</h3>
+                  <h3 className="font-semibold text-foreground">{stop.name}</h3>
                   <p className="text-sm text-muted-foreground">{stop.address}</p>
                   {stop.city && (
                     <p className="text-xs text-muted-foreground">{stop.city}</p>
@@ -298,7 +300,7 @@ export default function MobileDailyRoute() {
                 </Button>
                 <Button
                   size="sm"
-                  variant="default"
+                  variant="accent"
                   className="flex-1 gap-2"
                   onClick={() => logVisitMutation.mutate(stop)}
                   disabled={logVisitMutation.isPending}
@@ -309,7 +311,7 @@ export default function MobileDailyRoute() {
               </div>
 
               {stop.notes && (
-                <div className="text-xs text-muted-foreground border-t pt-2">
+                <div className="text-xs text-muted-foreground border-t border-border/50 pt-2">
                   <strong>Notes:</strong> {stop.notes}
                 </div>
               )}
@@ -319,9 +321,12 @@ export default function MobileDailyRoute() {
       </div>
 
       {stops.length === 0 && (
-        <div className="p-8 text-center text-muted-foreground">
-          <MapPin className="h-12 w-12 mx-auto mb-4 opacity-50" />
-          <p>No stops scheduled for today</p>
+        <div className="p-8 text-center text-muted-foreground animate-fade-in">
+          <div className="w-16 h-16 rounded-full bg-muted/50 flex items-center justify-center mx-auto mb-4">
+            <MapPin className="h-8 w-8 opacity-50" />
+          </div>
+          <p className="font-medium">No stops scheduled for today</p>
+          <p className="text-sm mt-1">Check back tomorrow or view your weekly routes</p>
         </div>
       )}
     </div>

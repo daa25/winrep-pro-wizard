@@ -2,9 +2,9 @@ import StatCard from "@/components/StatCard";
 import RepCard from "@/components/RepCard";
 import TodaysRouteWidget from "@/components/dashboard/TodaysRouteWidget";
 import WeeklyPerformanceReport from "@/components/dashboard/WeeklyPerformanceReport";
-import { Users, DollarSign, TrendingUp, Target } from "lucide-react";
+import { Users, DollarSign, TrendingUp, Target, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
+import winzerLogo from "@/assets/winzer-logo.png";
 
 // Mock data
 const stats = [
@@ -45,7 +45,7 @@ const stats = [
 const topReps = [
   {
     name: "Sarah Johnson",
-    email: "sarah.j@winrep.pro",
+    email: "sarah.j@winzer.com",
     status: "active" as const,
     dealsCount: 23,
     revenue: 485000,
@@ -53,7 +53,7 @@ const topReps = [
   },
   {
     name: "Michael Chen",
-    email: "michael.c@winrep.pro",
+    email: "michael.c@winzer.com",
     status: "active" as const,
     dealsCount: 19,
     revenue: 420000,
@@ -61,7 +61,7 @@ const topReps = [
   },
   {
     name: "Emily Rodriguez",
-    email: "emily.r@winrep.pro",
+    email: "emily.r@winzer.com",
     status: "active" as const,
     dealsCount: 21,
     revenue: 398000,
@@ -69,7 +69,7 @@ const topReps = [
   },
   {
     name: "David Kim",
-    email: "david.k@winrep.pro",
+    email: "david.k@winzer.com",
     status: "active" as const,
     dealsCount: 17,
     revenue: 365000,
@@ -81,26 +81,43 @@ export default function Dashboard() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="space-y-2">
-        <h1 className="text-4xl font-bold text-foreground">Dashboard</h1>
-        <p className="text-muted-foreground">Welcome back! Here's your team's overview.</p>
+      <div className="flex items-center justify-between">
+        <div className="space-y-1">
+          <h1 className="text-4xl font-bold text-foreground">Dashboard</h1>
+          <p className="text-muted-foreground">Welcome back! Here's your team's overview.</p>
+        </div>
+        <img 
+          src={winzerLogo} 
+          alt="Winzer" 
+          className="h-10 w-auto opacity-80 hidden lg:block"
+        />
       </div>
 
       {/* Stats Grid */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {stats.map((stat) => (
-          <StatCard key={stat.title} {...stat} />
+        {stats.map((stat, index) => (
+          <div 
+            key={stat.title} 
+            className="animate-slide-up"
+            style={{ animationDelay: `${index * 100}ms` }}
+          >
+            <StatCard {...stat} />
+          </div>
         ))}
       </div>
 
       {/* Today's Route & Performance */}
       <div className="grid gap-6 md:grid-cols-2">
-        <TodaysRouteWidget />
-        <WeeklyPerformanceReport />
+        <div className="animate-slide-up" style={{ animationDelay: '400ms' }}>
+          <TodaysRouteWidget />
+        </div>
+        <div className="animate-slide-up" style={{ animationDelay: '500ms' }}>
+          <WeeklyPerformanceReport />
+        </div>
       </div>
 
       {/* Top Performers Section */}
-      <div className="space-y-4">
+      <div className="space-y-4 animate-slide-up" style={{ animationDelay: '600ms' }}>
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-2xl font-bold text-foreground">Top Performers</h2>
@@ -110,14 +127,20 @@ export default function Dashboard() {
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               placeholder="Search reps..."
-              className="pl-9 bg-card border-border/50"
+              className="pl-9 bg-card border-border/50 shadow-card focus:shadow-elevated transition-shadow"
             />
           </div>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
-          {topReps.map((rep) => (
-            <RepCard key={rep.email} {...rep} />
+          {topReps.map((rep, index) => (
+            <div 
+              key={rep.email}
+              className="animate-scale-in"
+              style={{ animationDelay: `${700 + index * 100}ms` }}
+            >
+              <RepCard {...rep} />
+            </div>
           ))}
         </div>
       </div>
