@@ -326,16 +326,19 @@ Deno.serve(async (req) => {
     weekB: weekBRoutes,
   };
 
-  // Save to database
+  // Save to database (upsert with conflict handling)
   const { error: saveError } = await supabaseClient
     .from('weekly_routes')
-    .upsert({
-      user_id: user.id,
-      week_number: validatedData.weekNumber,
-      week_start_date: validatedData.weekStartDate,
-      origin_address: origin,
-      routes: twoWeekSchedule,
-    });
+    .upsert(
+      {
+        user_id: user.id,
+        week_number: validatedData.weekNumber,
+        week_start_date: validatedData.weekStartDate,
+        origin_address: origin,
+        routes: twoWeekSchedule,
+      },
+      { onConflict: 'user_id,week_start_date' }
+    );
 
     if (saveError) {
       statusCode = 500;
