@@ -473,14 +473,26 @@ const Customers = () => {
 
         <Card>
           <CardHeader>
-            <div className="flex items-center gap-2">
-              <Search className="w-4 h-4 text-muted-foreground" />
-              <Input
-                placeholder="Search customers by name, email, ID, or city..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="max-w-sm"
-              />
+            <div className="flex items-center gap-2 flex-wrap">
+              <div className="relative flex-1 min-w-[200px] max-w-md">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <Input
+                  placeholder="Search customers by name, email, ID, or city..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-9"
+                  list="customer-suggestions"
+                />
+                {searchTerm && filteredCustomers.length > 0 && (
+                  <datalist id="customer-suggestions">
+                    {filteredCustomers.slice(0, 10).map((customer) => (
+                      <option key={customer.id} value={customer.name}>
+                        {customer.city} - {customer.status}
+                      </option>
+                    ))}
+                  </datalist>
+                )}
+              </div>
               {searchTerm && (
                 <Button variant="outline" size="sm" onClick={() => setSearchTerm("")}>
                   Clear
