@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/components/ui/use-toast";
-import { Navigation, Clock, MapPin, Loader2, Plus, X, GripVertical, Route, ExternalLink, Map } from "lucide-react";
+import { Navigation, Clock, MapPin, Loader2, Plus, X, GripVertical, Route, ExternalLink, Map, Save, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { SearchableCombobox, ComboboxOption } from "@/components/ui/searchable-combobox";
 import RouteMap from "@/components/routes/RouteMap";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   DndContext,
   closestCenter,
@@ -171,7 +173,11 @@ export default function RouteOptimization() {
   const [routeInfo, setRouteInfo] = useState<OptimizedRoute | null>(null);
   const [loading, setLoading] = useState(false);
   const [geocodingStops, setGeocodingStops] = useState<Set<string>>(new Set());
+  const [saveDialogOpen, setSaveDialogOpen] = useState(false);
+  const [templateName, setTemplateName] = useState("");
+  const [showDirections, setShowDirections] = useState(true);
   const { toast } = useToast();
+  const queryClient = useQueryClient();
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -473,29 +479,159 @@ export default function RouteOptimization() {
             </Button>
           </div>
 
-          {/* Route Info */}
+          {/* Save as Template */}
+          <Dialog open={saveDialogOpen} onOpenChange={setSaveDialogOpen}>
+            <DialogTrigger asChild>
+              <Button variant="outline" className="w-full" disabled={stops.filter(s => s.address.trim()).length < 2}>
+                <Save className="mr-2 h-4 w-4" />
+                Save as Template
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Save Route Template</DialogTitle>
+              </DialogHeader>
+              <div className="space-y-4 pt-4">
+                <div className="space-y-2">
+                  <Label>Template Name</Label>
+                  <Input
+                    placeholder="e.g., Monday Downtown Route"
+                    value={templateName}
+                    onChange={(e) => setTemplateName(e.target.value)}
+                  />
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  This will save {stops.filter(s => s.address.trim()).length} stops to your optimized routes.
+                </div>
+                <Button 
+                  className="w-full" 
+                  onClick={async () => {
+                    if (!templateName.trim()) {
+                      toast({ title: "Enter a name", variant: "destructive" });
+                      return;
+                    }
+                    try {
+                      const { data: { user } } = await supabase.auth.getUser();
+                      if (!user) throw new Error("Not authenticated");
+                      
+                      const validStops = stops.filter(s => s.address.trim());
+                      const { error } = await supabase.from("optimized_routes").insert({
+                        user_id: user.id,
+                        route_name: templateName,
+                        stops: validStops.map((s, i) => ({
+                          order: i,
+                          address: s.address,
+                          name: s.name || s.address,
+                          lat: s.lat,
+                          lng: s.lng,
+                        })),
+                        total_distance: routeInfo?.totalDistance || null,
+                        total_duration: routeInfo?.totalTime || null,
+                      });
+                      
+                      if (error) throw error;
+                      
+                      toast({ title: "Route saved!", description: `"${templateName}" saved to your templates.` });
+                      setSaveDialogOpen(false);
+                      setTemplateName("");
+                    } catch (error) {
+                      console.error("Save error:", error);
+                      toast({ title: "Failed to save", variant: "destructive" });
+                    }
+                  }}
+                  disabled={!templateName.trim()}
+                >
+                  Save Template
+                </Button>
+              </div>
+            </DialogContent>
+          </Dialog>
+
+          {/* Route Summary */}
           {routeInfo && (
-            <div className="grid grid-cols-2 gap-2">
-              <Card className="p-3">
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-muted-foreground" />
-                  <div>
-                    <div className="text-lg font-bold">{routeInfo.totalDistance.toFixed(1)} mi</div>
-                    <div className="text-xs text-muted-foreground">Total Distance</div>
-                  </div>
-                </div>
-              </Card>
-              <Card className="p-3">
-                <div className="flex items-center gap-2">
-                  <Clock className="h-4 w-4 text-muted-foreground" />
-                  <div>
-                    <div className="text-lg font-bold">
-                      {Math.floor(routeInfo.totalTime / 60)}h {Math.round(routeInfo.totalTime % 60)}m
+            <div className="space-y-2">
+              <div className="grid grid-cols-2 gap-2">
+                <Card className="p-3">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-muted-foreground" />
+                    <div>
+                      <div className="text-lg font-bold">{routeInfo.totalDistance.toFixed(1)} mi</div>
+                      <div className="text-xs text-muted-foreground">Total Distance</div>
                     </div>
-                    <div className="text-xs text-muted-foreground">Est. Time</div>
                   </div>
-                </div>
-              </Card>
+                </Card>
+                <Card className="p-3">
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-muted-foreground" />
+                    <div>
+                      <div className="text-lg font-bold">
+                        {Math.floor(routeInfo.totalTime / 60)}h {Math.round(routeInfo.totalTime % 60)}m
+                      </div>
+                      <div className="text-xs text-muted-foreground">Est. Time</div>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+
+              {/* Turn-by-turn Directions */}
+              {routeInfo.legs && routeInfo.legs.length > 0 && (
+                <Card>
+                  <CardHeader className="pb-2 pt-3 px-3">
+                    <button
+                      onClick={() => setShowDirections(!showDirections)}
+                      className="flex items-center justify-between w-full text-left"
+                    >
+                      <CardTitle className="text-sm flex items-center gap-2">
+                        <Route className="h-4 w-4" />
+                        Turn-by-Turn Directions
+                      </CardTitle>
+                      {showDirections ? (
+                        <ChevronUp className="h-4 w-4 text-muted-foreground" />
+                      ) : (
+                        <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                      )}
+                    </button>
+                  </CardHeader>
+                  {showDirections && (
+                    <CardContent className="px-3 pb-3">
+                      <ScrollArea className="h-[200px]">
+                        <div className="space-y-2">
+                          {routeInfo.legs.map((leg, index) => (
+                            <div 
+                              key={index} 
+                              className="flex items-start gap-2 p-2 rounded-lg bg-accent/50 text-sm"
+                            >
+                              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold">
+                                {index + 1}
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                                  <span className="truncate">{leg.from}</span>
+                                  <ArrowRight className="h-3 w-3 flex-shrink-0" />
+                                  <span className="truncate">{leg.to}</span>
+                                </div>
+                                <div className="flex items-center gap-3 mt-1">
+                                  <Badge variant="secondary" className="text-xs">
+                                    <MapPin className="h-3 w-3 mr-1" />
+                                    {leg.distance.toFixed(1)} mi
+                                  </Badge>
+                                  <Badge variant="outline" className="text-xs">
+                                    <Clock className="h-3 w-3 mr-1" />
+                                    {leg.duration < 60 
+                                      ? `${Math.round(leg.duration)} min`
+                                      : `${Math.floor(leg.duration / 60)}h ${Math.round(leg.duration % 60)}m`
+                                    }
+                                  </Badge>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </ScrollArea>
+                    </CardContent>
+                  )}
+                </Card>
+              )}
             </div>
           )}
         </div>
