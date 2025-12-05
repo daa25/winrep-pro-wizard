@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import winzerLogo from "@/assets/winzer-logo.png";
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: Home },
@@ -39,34 +40,36 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen bg-background">
       {/* Sidebar */}
-      <aside className="fixed left-0 top-0 z-40 h-screen w-64 bg-sidebar border-r border-sidebar-border">
+      <aside className="fixed left-0 top-0 z-40 h-screen w-64 bg-sidebar shadow-elevated">
         <div className="flex h-full flex-col">
           {/* Logo */}
-          <div className="flex h-16 items-center border-b border-sidebar-border px-6">
-            <div className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded-lg bg-gradient-primary flex items-center justify-center">
-                <TrendingUp className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <span className="text-xl font-bold text-sidebar-foreground">WinRep Pro</span>
-            </div>
+          <div className="flex h-20 items-center border-b border-sidebar-border px-4">
+            <Link to="/" className="flex items-center gap-3 hover-scale">
+              <img 
+                src={winzerLogo} 
+                alt="Winzer" 
+                className="h-12 w-auto drop-shadow-lg"
+              />
+            </Link>
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 space-y-1 px-3 py-4">
-            {navigation.map((item) => {
+          <nav className="flex-1 space-y-1 px-3 py-4 overflow-y-auto scrollbar-thin">
+            {navigation.map((item, index) => {
               const isActive = location.pathname === item.href;
               return (
                 <Link
                   key={item.name}
                   to={item.href}
                   className={cn(
-                    "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
+                    "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200",
                     isActive
-                      ? "bg-sidebar-accent text-sidebar-primary shadow-sm"
-                      : "text-sidebar-foreground hover:bg-sidebar-accent/50"
+                      ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-glow-accent"
+                      : "text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-foreground"
                   )}
+                  style={{ animationDelay: `${index * 20}ms` }}
                 >
-                  <item.icon className="h-5 w-5" />
+                  <item.icon className={cn("h-5 w-5", isActive && "animate-pulse")} />
                   {item.name}
                 </Link>
               );
@@ -75,14 +78,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Footer */}
           <div className="border-t border-sidebar-border p-4">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="h-9 w-9 rounded-full bg-gradient-primary" />
+            <div className="flex items-center gap-3 mb-3 p-2 rounded-lg bg-sidebar-accent/50">
+              <div className="h-10 w-10 rounded-full bg-gradient-accent flex items-center justify-center shadow-glow-accent">
+                <span className="text-sm font-bold text-accent-foreground">
+                  {user?.email?.charAt(0).toUpperCase() || "U"}
+                </span>
+              </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium text-sidebar-foreground truncate">
                   {user?.email || "User"}
                 </p>
                 <p className="text-xs text-sidebar-foreground/60 truncate">
-                  Rep Account
+                  Sales Rep
                 </p>
               </div>
             </div>
@@ -90,7 +97,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               variant="outline"
               size="sm"
               onClick={handleSignOut}
-              className="w-full"
+              className="w-full border-sidebar-border text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground glow-button"
             >
               <LogOut className="h-4 w-4 mr-2" />
               Sign Out
@@ -101,7 +108,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Main Content */}
       <main className="flex-1 pl-64">
-        <div className="container mx-auto p-8">
+        <div className="container mx-auto p-8 animate-fade-in">
           {children}
         </div>
       </main>

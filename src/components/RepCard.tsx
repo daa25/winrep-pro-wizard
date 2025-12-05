@@ -13,19 +13,19 @@ interface RepCardProps {
 
 export default function RepCard({ name, email, status, dealsCount, revenue, performance }: RepCardProps) {
   const getPerformanceBadge = (perf: number) => {
-    if (perf >= 90) return { variant: "default" as const, label: "Excellent" };
-    if (perf >= 75) return { variant: "secondary" as const, label: "Good" };
-    return { variant: "outline" as const, label: "Needs Improvement" };
+    if (perf >= 90) return { variant: "default" as const, label: "Excellent", color: "bg-success text-success-foreground" };
+    if (perf >= 75) return { variant: "secondary" as const, label: "Good", color: "bg-primary text-primary-foreground" };
+    return { variant: "outline" as const, label: "Needs Improvement", color: "" };
   };
 
   const perfBadge = getPerformanceBadge(performance);
 
   return (
-    <Card className="overflow-hidden border-border/50 shadow-card hover:shadow-elevated transition-all duration-300 hover:scale-[1.02]">
+    <Card className="overflow-hidden border-border/50 hover-lift group">
       <CardContent className="p-6">
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center gap-3">
-            <div className="h-12 w-12 rounded-full bg-gradient-primary flex items-center justify-center text-primary-foreground font-semibold">
+            <div className="h-12 w-12 rounded-full bg-gradient-accent flex items-center justify-center text-accent-foreground font-semibold shadow-glow-accent transition-transform group-hover:scale-110">
               {name.split(' ').map(n => n[0]).join('')}
             </div>
             <div>
@@ -33,7 +33,10 @@ export default function RepCard({ name, email, status, dealsCount, revenue, perf
               <p className="text-sm text-muted-foreground">{email}</p>
             </div>
           </div>
-          <Badge variant={status === "active" ? "default" : "outline"}>
+          <Badge 
+            variant={status === "active" ? "default" : "outline"}
+            className={status === "active" ? "bg-success text-success-foreground shadow-sm" : ""}
+          >
             {status}
           </Badge>
         </div>
@@ -58,7 +61,7 @@ export default function RepCard({ name, email, status, dealsCount, revenue, perf
               <TrendingUp className="h-3.5 w-3.5" />
               <span className="text-xs">Performance</span>
             </div>
-            <Badge variant={perfBadge.variant} className="mt-1 text-xs">
+            <Badge variant={perfBadge.variant} className={`mt-1 text-xs ${perfBadge.color}`}>
               {perfBadge.label}
             </Badge>
           </div>
