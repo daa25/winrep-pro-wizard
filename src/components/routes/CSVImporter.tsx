@@ -6,8 +6,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Upload, FileText } from "lucide-react";
+import { Upload, FileText, AlertTriangle } from "lucide-react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import Papa from 'papaparse';
+
+// Security limits
+const MAX_FILE_SIZE_MB = 5;
+const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
+const MAX_RECORDS = 500;
+const CONFIRMATION_THRESHOLD = 100;
 
 interface CSVRow {
   name?: string;
@@ -21,29 +28,37 @@ export default function CSVImporter() {
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const [file, setFile] = useState<File | null>(null);
+  const [previewCount, setPreviewCount] = useState<number | null>(null);
+  const [pendingAccounts, setPendingAccounts] = useState<any[] | null>(null);
 
   const importMutation = useMutation({
     mutationFn: async (accounts: any[]) => {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) throw new Error('Not authenticated');
 
-      const { error } = await supabase.from('route_accounts').insert(
-        accounts.map((acc) => ({
-          ...acc,
-          user_id: user.id,
-          is_active: true,
-        }))
-      );
-
-      if (error) throw error;
+      // Chunk large imports to prevent timeouts
+      const chunkSize = 100;
+      for (let i = 0; i < accounts.length; i += chunkSize) {
+        const chunk = accounts.slice(i, i + chunkSize);
+        const { error } = await supabase.from('route_accounts').insert(
+          chunk.map((acc) => ({
+            ...acc,
+            user_id: user.id,
+            is_active: true,
+          }))
+        );
+        if (error) throw error;
+      }
     },
-    onSuccess: (_, accounts) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['route-accounts'] });
       toast({
         title: "Import successful!",
-        description: `Imported ${accounts.length} accounts`,
+        description: `Imported ${pendingAccounts?.length || 0} accounts`,
       });
       setFile(null);
+      setPreviewCount(null);
+      setPendingAccounts(null);
     },
     onError: (error: Error) => {
       toast({
@@ -56,18 +71,35 @@ export default function CSVImporter() {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
-    if (selectedFile && selectedFile.type === 'text/csv') {
-      setFile(selectedFile);
-    } else {
+    setPreviewCount(null);
+    setPendingAccounts(null);
+    
+    if (!selectedFile) return;
+    
+    // Check file type
+    if (selectedFile.type !== 'text/csv' && !selectedFile.name.endsWith('.csv')) {
       toast({
         title: "Invalid file type",
         description: "Please select a CSV file",
         variant: "destructive",
       });
+      return;
     }
+    
+    // Check file size
+    if (selectedFile.size > MAX_FILE_SIZE_BYTES) {
+      toast({
+        title: "File too large",
+        description: `Maximum file size is ${MAX_FILE_SIZE_MB}MB`,
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    setFile(selectedFile);
   };
 
-  const handleImport = () => {
+  const parseAndValidate = () => {
     if (!file) return;
 
     Papa.parse(file, {
@@ -75,6 +107,16 @@ export default function CSVImporter() {
       skipEmptyLines: true,
       complete: (results) => {
         const rows = results.data as CSVRow[];
+        
+        // Check record count
+        if (rows.length > MAX_RECORDS) {
+          toast({
+            title: "Too many records",
+            description: `Maximum ${MAX_RECORDS} records per import. Your file has ${rows.length} records. Please split into smaller files.`,
+            variant: "destructive",
+          });
+          return;
+        }
         
         const accounts = rows
           .filter((row) => row.full_address || row.address)
@@ -105,7 +147,13 @@ export default function CSVImporter() {
           return;
         }
 
-        importMutation.mutate(accounts);
+        setPreviewCount(accounts.length);
+        setPendingAccounts(accounts);
+        
+        // Auto-import if under threshold
+        if (accounts.length <= CONFIRMATION_THRESHOLD) {
+          importMutation.mutate(accounts);
+        }
       },
       error: (error) => {
         toast({
@@ -115,6 +163,12 @@ export default function CSVImporter() {
         });
       },
     });
+  };
+
+  const confirmImport = () => {
+    if (pendingAccounts) {
+      importMutation.mutate(pendingAccounts);
+    }
   };
 
   const extractCity = (address: string): string => {
@@ -162,6 +216,8 @@ export default function CSVImporter() {
     return tags;
   };
 
+  const needsConfirmation = previewCount !== null && previewCount > CONFIRMATION_THRESHOLD;
+
   return (
     <Card>
       <CardHeader>
@@ -170,7 +226,7 @@ export default function CSVImporter() {
           <CardTitle>CSV Import</CardTitle>
         </div>
         <CardDescription>
-          Import accounts from CSV with business names
+          Import accounts from CSV with business names (max {MAX_RECORDS} records, {MAX_FILE_SIZE_MB}MB)
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -204,17 +260,51 @@ export default function CSVImporter() {
         {file && (
           <div className="flex items-center gap-2">
             <Upload className="h-4 w-4" />
-            <span className="text-sm text-muted-foreground">{file.name}</span>
+            <span className="text-sm text-muted-foreground">
+              {file.name} ({(file.size / 1024).toFixed(1)} KB)
+            </span>
           </div>
         )}
 
-        <Button
-          onClick={handleImport}
-          disabled={!file || importMutation.isPending}
-          className="w-full"
-        >
-          {importMutation.isPending ? "Importing..." : "Import CSV"}
-        </Button>
+        {needsConfirmation && (
+          <Alert>
+            <AlertTriangle className="h-4 w-4" />
+            <AlertDescription>
+              You're about to import <strong>{previewCount}</strong> accounts. 
+              This is a large import. Please confirm to proceed.
+            </AlertDescription>
+          </Alert>
+        )}
+
+        {needsConfirmation ? (
+          <div className="flex gap-2">
+            <Button
+              onClick={confirmImport}
+              disabled={importMutation.isPending}
+              className="flex-1"
+            >
+              {importMutation.isPending ? "Importing..." : `Confirm Import (${previewCount} accounts)`}
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setFile(null);
+                setPreviewCount(null);
+                setPendingAccounts(null);
+              }}
+            >
+              Cancel
+            </Button>
+          </div>
+        ) : (
+          <Button
+            onClick={parseAndValidate}
+            disabled={!file || importMutation.isPending}
+            className="w-full"
+          >
+            {importMutation.isPending ? "Importing..." : "Import CSV"}
+          </Button>
+        )}
       </CardContent>
     </Card>
   );
