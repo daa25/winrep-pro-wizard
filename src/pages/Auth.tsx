@@ -164,7 +164,7 @@ const Auth = () => {
   // Password Recovery Form
   if (isRecoveryMode) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-hero p-4 relative overflow-hidden">
+      <main role="main" className="min-h-screen flex items-center justify-center bg-gradient-hero p-4 relative overflow-hidden">
         {/* Background decorations */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
@@ -238,20 +238,20 @@ const Auth = () => {
               <button
                 type="button"
                 onClick={() => navigate("/auth", { replace: true })}
-                className="text-primary hover:text-primary-glow font-medium transition-colors"
+                className="text-primary hover:text-primary-glow font-medium transition-colors min-h-[44px] min-w-[44px] px-4 py-2"
               >
                 Back to Sign In
               </button>
             </div>
           </CardContent>
         </Card>
-      </div>
+      </main>
     );
   }
 
   // Regular Login/Signup Form
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-hero p-4 relative overflow-hidden">
+    <main role="main" className="min-h-screen flex items-center justify-center bg-gradient-hero p-4 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
@@ -341,7 +341,7 @@ const Auth = () => {
                 <DialogTrigger asChild>
                   <button
                     type="button"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors min-h-[44px] min-w-[44px] px-4 py-2"
                   >
                     Forgot password?
                   </button>
@@ -379,7 +379,7 @@ const Auth = () => {
             <button
               type="button"
               onClick={() => setIsLogin(!isLogin)}
-              className="text-primary hover:text-primary-glow font-medium transition-colors"
+              className="text-primary hover:text-primary-glow font-medium transition-colors min-h-[44px] min-w-[44px] px-4 py-2"
             >
               {isLogin
                 ? "Don't have an account? Sign up"
@@ -388,7 +388,7 @@ const Auth = () => {
           </div>
         </CardContent>
       </Card>
-    </div>
+    </main>
   );
 };
 

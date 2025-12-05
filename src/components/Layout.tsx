@@ -107,11 +107,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 pl-64">
-        <div className="container mx-auto p-8 animate-fade-in">
+      <div className="flex-1 pl-64">
+        <main role="main" className="container mx-auto p-8 animate-fade-in">
           {children}
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
   );
 }
