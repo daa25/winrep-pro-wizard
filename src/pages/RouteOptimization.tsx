@@ -9,6 +9,23 @@ import { useToast } from "@/components/ui/use-toast";
 import { Navigation, Clock, MapPin, Loader2, Plus, X, GripVertical, Route, ExternalLink } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { SearchableCombobox, ComboboxOption } from "@/components/ui/searchable-combobox";
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  DragEndEvent,
+} from "@dnd-kit/core";
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  useSortable,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 interface Stop {
   id: string;
@@ -30,6 +47,90 @@ interface OptimizedRoute {
   googleMapsUrl?: string;
 }
 
+interface SortableStopProps {
+  stop: Stop;
+  index: number;
+  stopsLength: number;
+  allLocationOptions: ComboboxOption[];
+  onLocationSelect: (stopId: string, value: string) => void;
+  onUpdateStop: (id: string, updates: Partial<Stop>) => void;
+  onRemoveStop: (id: string) => void;
+}
+
+function SortableStop({ stop, index, stopsLength, allLocationOptions, onLocationSelect, onUpdateStop, onRemoveStop }: SortableStopProps) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id: stop.id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.5 : 1,
+  };
+
+  return (
+    <div
+      ref={setNodeRef}
+      style={style}
+      className="flex items-start gap-3 p-3 border rounded-lg bg-muted/30"
+    >
+      <div className="flex items-center gap-2 pt-2">
+        <button
+          {...attributes}
+          {...listeners}
+          className="cursor-grab active:cursor-grabbing touch-none"
+        >
+          <GripVertical className="h-4 w-4 text-muted-foreground hover:text-foreground" />
+        </button>
+        <Badge variant="outline" className="w-8 h-8 rounded-full flex items-center justify-center p-0">
+          {index + 1}
+        </Badge>
+      </div>
+      
+      <div className="flex-1 space-y-2">
+        <div className="flex items-center gap-2">
+          <Label className="text-sm font-medium">
+            {index === 0 ? "Start Location" : index === stopsLength - 1 && stopsLength > 1 ? "Final Destination" : `Stop ${index}`}
+          </Label>
+          {stop.name && stop.name !== stop.address && (
+            <Badge variant="secondary" className="text-xs">{stop.name}</Badge>
+          )}
+        </div>
+        
+        <div className="grid gap-2 md:grid-cols-2">
+          <SearchableCombobox
+            options={allLocationOptions}
+            placeholder="Select customer or account..."
+            searchPlaceholder="Search locations..."
+            emptyText="No locations found"
+            onValueChange={(value) => onLocationSelect(stop.id, value)}
+          />
+          <Input
+            placeholder="Or enter address manually..."
+            value={stop.address}
+            onChange={(e) => onUpdateStop(stop.id, { address: e.target.value, name: undefined })}
+          />
+        </div>
+      </div>
+
+      <Button
+        variant="ghost"
+        size="icon"
+        className="mt-6"
+        onClick={() => onRemoveStop(stop.id)}
+        disabled={stopsLength <= 1}
+      >
+        <X className="h-4 w-4" />
+      </Button>
+    </div>
+  );
+}
+
 export default function RouteOptimization() {
   const [stops, setStops] = useState<Stop[]>([
     { id: crypto.randomUUID(), address: "", name: "Start" },
@@ -37,6 +138,13 @@ export default function RouteOptimization() {
   const [routeInfo, setRouteInfo] = useState<OptimizedRoute | null>(null);
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
+
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
 
   // Fetch customers for dropdown
   const { data: customers = [] } = useQuery({
@@ -132,6 +240,18 @@ export default function RouteOptimization() {
     }
   };
 
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+
+    if (over && active.id !== over.id) {
+      setStops((items) => {
+        const oldIndex = items.findIndex((item) => item.id === active.id);
+        const newIndex = items.findIndex((item) => item.id === over.id);
+        return arrayMove(items, oldIndex, newIndex);
+      });
+    }
+  };
+
   const optimizeRoute = async () => {
     const validStops = stops.filter((s) => s.address.trim());
     
@@ -199,7 +319,7 @@ export default function RouteOptimization() {
       <div>
         <h1 className="text-3xl font-bold mb-2">Route Optimization</h1>
         <p className="text-muted-foreground">
-          Add multiple stops and optimize your route based on traffic and location
+          Add multiple stops and optimize your route based on traffic and location. Drag to reorder stops.
         </p>
       </div>
 
@@ -210,56 +330,30 @@ export default function RouteOptimization() {
             Route Stops
           </CardTitle>
           <CardDescription>
-            Add stops manually or select from your customers and accounts
+            Add stops manually or select from your customers and accounts. Drag stops to reorder.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          {stops.map((stop, index) => (
-            <div key={stop.id} className="flex items-start gap-3 p-3 border rounded-lg bg-muted/30">
-              <div className="flex items-center gap-2 pt-2">
-                <GripVertical className="h-4 w-4 text-muted-foreground" />
-                <Badge variant="outline" className="w-8 h-8 rounded-full flex items-center justify-center p-0">
-                  {index + 1}
-                </Badge>
-              </div>
-              
-              <div className="flex-1 space-y-2">
-                <div className="flex items-center gap-2">
-                  <Label className="text-sm font-medium">
-                    {index === 0 ? "Start Location" : index === stops.length - 1 && stops.length > 1 ? "Final Destination" : `Stop ${index}`}
-                  </Label>
-                  {stop.name && stop.name !== stop.address && (
-                    <Badge variant="secondary" className="text-xs">{stop.name}</Badge>
-                  )}
-                </div>
-                
-                <div className="grid gap-2 md:grid-cols-2">
-                  <SearchableCombobox
-                    options={allLocationOptions}
-                    placeholder="Select customer or account..."
-                    searchPlaceholder="Search locations..."
-                    emptyText="No locations found"
-                    onValueChange={(value) => handleLocationSelect(stop.id, value)}
-                  />
-                  <Input
-                    placeholder="Or enter address manually..."
-                    value={stop.address}
-                    onChange={(e) => updateStop(stop.id, { address: e.target.value, name: undefined })}
-                  />
-                </div>
-              </div>
-
-              <Button
-                variant="ghost"
-                size="icon"
-                className="mt-6"
-                onClick={() => removeStop(stop.id)}
-                disabled={stops.length <= 1}
-              >
-                <X className="h-4 w-4" />
-              </Button>
-            </div>
-          ))}
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
+          >
+            <SortableContext items={stops.map(s => s.id)} strategy={verticalListSortingStrategy}>
+              {stops.map((stop, index) => (
+                <SortableStop
+                  key={stop.id}
+                  stop={stop}
+                  index={index}
+                  stopsLength={stops.length}
+                  allLocationOptions={allLocationOptions}
+                  onLocationSelect={handleLocationSelect}
+                  onUpdateStop={updateStop}
+                  onRemoveStop={removeStop}
+                />
+              ))}
+            </SortableContext>
+          </DndContext>
 
           <Button variant="outline" onClick={addStop} className="w-full">
             <Plus className="mr-2 h-4 w-4" />
