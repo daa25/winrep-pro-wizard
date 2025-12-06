@@ -11,8 +11,10 @@ import {
   Map, Save, ArrowRight, ChevronDown, ChevronUp, Download, Upload, Share2, Printer,
   Copy, RefreshCw, Trash2, RotateCcw, Fuel, Leaf, Zap, Calendar, Sun, Cloud,
   Thermometer, Wind, Star, StarOff, History, FileText, Settings2, ArrowUpDown,
-  Timer, TrendingUp, DollarSign, Car, Bike, PersonStanding
+  Timer, TrendingUp, DollarSign, Car, Bike, PersonStanding, CloudSun
 } from "lucide-react";
+import { StopWeatherBadge } from "@/components/routes/WeatherWidget";
+import { LiveETATracker, ETABadge, StopETA } from "@/components/routes/LiveETATracker";
 import { supabase } from "@/integrations/supabase/client";
 import { SearchableCombobox, ComboboxOption } from "@/components/ui/searchable-combobox";
 import RouteMap from "@/components/routes/RouteMap";
@@ -106,11 +108,14 @@ interface SortableStopProps {
   isHighlighted: boolean;
   onToggleFavorite?: (stopId: string) => void;
   isFavorite?: boolean;
+  stopETA?: StopETA;
+  showWeather?: boolean;
 }
 
 function SortableStop({ 
   stop, index, stopsLength, allLocationOptions, onLocationSelect, 
-  onUpdateStop, onRemoveStop, isGeocoding, isHighlighted, onToggleFavorite, isFavorite 
+  onUpdateStop, onRemoveStop, isGeocoding, isHighlighted, onToggleFavorite, isFavorite,
+  stopETA, showWeather = true
 }: SortableStopProps) {
   const {
     attributes,
@@ -234,6 +239,14 @@ function SortableStop({
             <span className="text-xs text-muted-foreground">min</span>
           </div>
         </div>
+
+        {/* Weather and ETA display */}
+        {stop.lat && stop.lng && (
+          <div className="flex items-center gap-2 flex-wrap">
+            {showWeather && <StopWeatherBadge lat={stop.lat} lng={stop.lng} />}
+            {stopETA && <ETABadge eta={stopETA} />}
+          </div>
+        )}
 
         {/* Coordinates display */}
         {stop.lat && stop.lng ? (
@@ -388,6 +401,8 @@ export default function RouteOptimization() {
   const [routeColor, setRouteColor] = useState('#3b82f6');
   const [animateRoute, setAnimateRoute] = useState(false);
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
+  const [stopETAs, setStopETAs] = useState<StopETA[]>([]);
+  const [showWeather, setShowWeather] = useState(true);
   
   const [preferences, setPreferences] = useState<RoutePreferences>({
     avoidHighways: false,
@@ -987,6 +1002,8 @@ export default function RouteOptimization() {
                           isHighlighted={highlightedStopId === stop.id}
                           onToggleFavorite={toggleFavorite}
                           isFavorite={favorites.has(stop.id)}
+                          stopETA={stopETAs.find(e => e.stopId === stop.id)}
+                          showWeather={showWeather}
                         />
                       </div>
                     ))}
@@ -1152,6 +1169,15 @@ export default function RouteOptimization() {
 
             {/* Route Analytics */}
             <RouteAnalytics routeInfo={routeInfo} stops={stops} preferences={preferences} />
+
+            {/* Live ETA Tracker */}
+            <LiveETATracker
+              stops={stops}
+              routeInfo={routeInfo}
+              departureTime={preferences.departureTime}
+              defaultStopDuration={preferences.stopDuration}
+              onETAsUpdated={setStopETAs}
+            />
 
             {/* Turn-by-turn Directions */}
             {routeInfo?.legs && routeInfo.legs.length > 0 && (
@@ -1361,6 +1387,22 @@ export default function RouteOptimization() {
                       />
                     ))}
                   </div>
+                </div>
+
+                <Separator />
+
+                <div className="flex items-center justify-between">
+                  <div>
+                    <Label className="flex items-center gap-2">
+                      <CloudSun className="h-4 w-4" />
+                      Show Weather
+                    </Label>
+                    <p className="text-xs text-muted-foreground">Display weather forecast at each stop</p>
+                  </div>
+                  <Switch
+                    checked={showWeather}
+                    onCheckedChange={setShowWeather}
+                  />
                 </div>
               </TabsContent>
             </Tabs>
