@@ -7,7 +7,7 @@ import {
   Layers, Maximize2, Minimize2, LocateFixed, 
   Map as MapIcon, Mountain, Satellite, Moon, 
   Ruler, Target, ZoomIn, ZoomOut, RotateCcw,
-  Navigation2
+  Navigation2, Cloud, Sun, Thermometer
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -18,7 +18,9 @@ import {
   DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu";
 import { Badge } from '@/components/ui/badge';
+import { TooltipProvider } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
+import { WeatherWidget } from './WeatherWidget';
 
 // Fix for default marker icons in Leaflet with Vite
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -154,6 +156,7 @@ interface RouteMapProps {
   routeColor?: string;
   showDistanceMarkers?: boolean;
   animateRoute?: boolean;
+  showWeatherOnMap?: boolean;
 }
 
 // Component to fit map bounds
@@ -403,6 +406,7 @@ export default function RouteMap({
   routeColor = '#3b82f6',
   showDistanceMarkers = false,
   animateRoute = false,
+  showWeatherOnMap = true,
 }: RouteMapProps) {
   const [mapStyle, setMapStyle] = useState<MapStyleKey>('standard');
   const [trafficEnabled, setTrafficEnabled] = useState(showTraffic);
@@ -642,7 +646,7 @@ export default function RouteMap({
             }}
           >
             <Popup>
-              <div className="text-sm min-w-[150px]">
+              <div className="text-sm min-w-[180px]">
                 <div className="font-semibold">{stop.name || `Stop ${index + 1}`}</div>
                 <div className="text-muted-foreground text-xs mt-1">{stop.address}</div>
                 {stop.visitTime && (
@@ -657,6 +661,12 @@ export default function RouteMap({
                   >
                     {stop.priority} priority
                   </Badge>
+                )}
+                {/* Weather in popup */}
+                {showWeatherOnMap && stop.lat && stop.lng && (
+                  <div className="mt-2 pt-2 border-t">
+                    <WeatherWidget lat={stop.lat} lng={stop.lng} compact={false} />
+                  </div>
                 )}
                 {stop.notes && (
                   <div className="text-xs text-muted-foreground mt-2 italic">
