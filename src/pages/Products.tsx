@@ -14,6 +14,7 @@ import { Package, Search, Plus, Edit, Trash2, RefreshCw, DollarSign, Eye } from 
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { productSchema } from "@/lib/validationSchemas";
+import { WinzerImporter } from "@/components/products/WinzerImporter";
 
 interface Product {
   id: string;
@@ -233,6 +234,10 @@ const Products = () => {
               resetForm();
             }
           }}>
+            <WinzerImporter 
+              existingProductIds={products.map(p => p.external_id)} 
+              onImportComplete={() => refetch()} 
+            />
             <DialogTrigger asChild>
               <Button>
                 <Plus className="w-4 h-4 mr-2" />
